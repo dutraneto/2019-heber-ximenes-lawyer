@@ -1,0 +1,27 @@
+{
+  "name": "2019-heber-ximenes",
+  "version": "1.0.0",
+  "description": "Professional Web page - Heber Ximenes",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "latest",
+    "del": "latest",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "latest",
+    "gulp-clean-css": "latest",
+    "gulp-htmlmin": "latest",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-smushit": "latest",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "latest",
+    "pump": "latest"
+  },
+  "scripts": {},
+  "author": "DutraNeto",
+  "license": "ISC"
+}
