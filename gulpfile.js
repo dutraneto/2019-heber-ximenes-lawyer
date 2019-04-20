@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const del = require('del');
-const browserSync = require('browser-sync').create();
+// const browserSync = require('browser-sync').create();
+const liveServer = require('gulp-live-server');
 const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
 const pump = require('pump');
@@ -10,15 +11,18 @@ const htmlmin = require('gulp-htmlmin');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps')
 
+// compile SASS Explicit
+sass.compiler = require('node-sass')
+
 // Static Server
 gulp.task('serve', serve);
 
 function serve() {
-    browserSync.init({
-        server: "./src"
-    });
+    let server = liveServer.static('/dist', 8888);
+    server.start();
 
-    gulp.watch("src/**/*.*").on('change', browserSync.reload);
+    gulp.watch("src/**/*.*").on('change', server.start.bind(server));
+
 };
 
 // Minimize JS
@@ -38,7 +42,8 @@ function buildJs(cb) {
 gulp.task('build-copy', buildCopy);
 
 function buildCopy() {
-    return gulp.src('src/**/*')
+    const sourceFiles = ['./src/**/*.*', '!./src/sass/**/*.*'];
+    return gulp.src(sourceFiles)
         .pipe(gulp.dest('dist/'));
 };
 
@@ -46,7 +51,7 @@ function buildCopy() {
 gulp.task('build-sass', buildSASS);
 
 function buildSASS() {
-    return gulp.src('src/assets/sass/*.*')
+    return gulp.src('src/sass/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
         outputStyle: 'compressed'
@@ -59,8 +64,12 @@ function buildSASS() {
     .pipe(rename({
         suffix: '.min'
     }))
-    .pipe(gulp.dest('dist/assets/css'));
+    .pipe(gulp.dest('src/assets/css'));
 };
+
+gulp.task('sass:watch', function () {
+    gulp.watch(['src/sass/**/*.*', 'src/*.html'], gulp.series('build-sass'));
+  });
 
 // Optimize images
 gulp.task('build-img', buildIMG);
@@ -72,13 +81,13 @@ function buildIMG() {
 };
 
 // Serve dist files
-gulp.task('build-serve', buildServe);
+// gulp.task('build-serve', buildServe);
 
-function buildServe() {
-    browserSync.init({
-        server: "./dist"
-    })
-};
+// function buildServe() {
+//     browserSync.init({
+//         server: "./dist"
+//     })
+// };
 
 // Clean dist and tmp
 gulp.task('build-clean', buildClean);
@@ -98,7 +107,7 @@ gulp.task('build-html', () => {
   });
 
 // Build
-gulp.task('build', gulp.series('build-clean', 'build-copy', 'build-sass','build-js','build-html','build-img','build-serve'));
+gulp.task('build', gulp.series('build-clean', 'build-sass','build-js','build-html','build-img', 'build-copy'));
 
 // Run Default
 gulp.task('default', serve);

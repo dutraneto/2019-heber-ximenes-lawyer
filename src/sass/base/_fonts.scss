@@ -1,0 +1,20 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400|Sahitya');
+
+$font-roboto: 'Roboto', sans-serif;
+$font-sahitya: 'Sahitya', serif;
+
+@mixin roboto-thin() {
+  font-family: $font-roboto;
+  font-weight: 300;
+}
+@mixin roboto-regular() {
+  font-family: $font-roboto;
+  font-weight: 400;
+}
+@mixin sahitya-regular() {
+  font-family: $font-sahitya;
+  font-weight: 400;
+}

@@ -14,11 +14,13 @@
     "gulp-autoprefixer": "latest",
     "gulp-clean-css": "latest",
     "gulp-htmlmin": "latest",
+    "gulp-live-server": "0.0.31",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-smushit": "latest",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "latest",
+    "node-sass": "^4.11.0",
     "pump": "latest"
   },
   "scripts": {},
