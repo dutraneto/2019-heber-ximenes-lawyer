@@ -1,4 +1,15 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
-
+.btn.btn-custom {
+  font-size: 14px;
+}
+.btn-custom {
+  color: $color-stroke;
+  border-radius: 0;
+  border: 1px solid $color-stroke;
+  background-color: $color-primary;
+  line-height: 2.0;
+  font-weight: 100;
+  padding: .5rem 1.6rem;
+}

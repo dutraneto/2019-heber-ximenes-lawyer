@@ -5,3 +5,14 @@ body {
   color: $text-color;
 }
 
+.heading-first {
+  @include sahitya-regular;
+  color: $color-stroke;
+  font-size: 1.6em;
+}
+
+.paragraph {
+  color: $text-white;
+
+}
+
