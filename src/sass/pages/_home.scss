@@ -73,7 +73,24 @@
 
 .services {
     background: url("../img/lady-justice.png") no-repeat top center;
-    height: 100vh;
-    widows: 100%;
+
+    width: 100%;
     background-color: $color-background-secondary;
+
+    &__container {
+
+    }
+
+    &__card {
+        border: 1px solid $color-stroke;
+        height: 250px;
+        width: 100%;
+
+        &:not(:first-child) {
+            margin-top: 15px;
+        }
+
+
+    }
+
 }
