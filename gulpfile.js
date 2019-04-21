@@ -18,7 +18,7 @@ sass.compiler = require('node-sass')
 gulp.task('serve', serve);
 
 function serve() {
-    let server = liveServer.static('/dist', 8888);
+    let server = liveServer.static('/src', 8888);
     server.start();
 
     gulp.watch("src/**/*.*").on('change', server.start.bind(server));

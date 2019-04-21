@@ -2,9 +2,67 @@
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
 
-.wrapper {
-    padding: 50px 0;
+////////////////
+// Section Hero
+///////////////
+
+.section-hero {
+    height: 85vh;
+    width: 100%;
+    // background: url("/dist/assets/img/hero.png") $color-primary;
+    background-image: linear-gradient(to right bottom,
+                                    rgba(31, 50, 85, .4),
+                                    rgba(74, 103, 143, 0.4)),
+                                    url(../img/hero.png);
+    background-position:  right -326px top -100px;
+    background-repeat: no-repeat;
+    // object-fit: contain;
+    // background-size: 100%;
 }
-.container {
-    text-align: center;
+
+////////////////
+// Section Info
+///////////////
+
+.info {
+    // height: 100vh;
+    width: 100%;
+    background-color: $text-white;
+    // display: flex;
+    position: relative;
+
+    &__bg-color {
+        background-color: $color-primary;
+        height: 100vh;
+        width: auto;
+    }
+
+    &__text {
+        width: 220px;
+        position: absolute;
+        bottom: 5%;
+        left: 25%;
+    }
+
+    &__frame {
+        top: 5%;
+        left: 5%;
+        position: absolute;
+        width: 90%;
+        // height: 280px;
+        border: 2px solid $color-primary;
+        z-index: 3;
+        overflow: hidden;
+        padding: 10px;
+    }
+
+    &__pic {
+        z-index: 3;
+        width: 100%;
+        object-fit: cover;
+        box-shadow: 1px 1px 4px rgba(0,0,0, .3);
+        -webkit-filter: brightness(0.9);
+        filter: brightness(0.9);
+    }
+
 }

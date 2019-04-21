@@ -1,15 +1,30 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
-.btn.btn-custom {
-  font-size: 14px;
-}
 .btn-custom {
   color: $color-stroke;
   border-radius: 0;
   border: 1px solid $color-stroke;
   background-color: $color-primary;
-  line-height: 2.0;
   font-weight: 100;
+}
+
+.btn.btn-custom:hover {
+  background-color: lighten($color-primary, 3%);
+  color: $color-stroke;
+  border-color: $color-stroke;
+
+}
+
+.btn.btn-custom-sm {
+  padding: .375rem .8rem;
+  font-size: 14px;
+  font-weight: 400;
+  border: 1px solid $color-stroke;
+}
+
+.btn.btn-custom-lg {
+  line-height: 2.0;
   padding: .5rem 1.6rem;
+  font-size: 14px;
 }

@@ -16,3 +16,15 @@ body {
 
 }
 
+.heading-secondary {
+  @include sahitya-regular;
+  color: $color-primary;
+}
+
+.paragraph-secondary {
+  color: $text-color;
+  font-weight: 100;
+  line-height: 1;
+  font-size: 70%;
+}
+
