@@ -19,6 +19,11 @@ body {
 .heading-secondary {
   @include sahitya-regular;
   color: $color-primary;
+
+  &--gold {
+    @include sahitya-regular;
+    color: $color-stroke !important;
+  }
 }
 
 .paragraph-secondary {
