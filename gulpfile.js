@@ -18,8 +18,8 @@ sass.compiler = require('node-sass');
 // paths
 const path = {
   root: '/',
-  source: 'src',
-  dist: 'dist',
+  source: 'src/',
+  dist: 'dist/',
   allFiles: 'src/**/*.*',
   sass: 'src/sass/**/*.*',
   port: 4000
@@ -31,6 +31,7 @@ const serve = (
 ) => {
   let server = liveServer.static(source, port);
   server.start();
+  // restart server
   watch(path.allFiles).on('change', server.start.bind(server));
 };
 task('serve', () => serve());
@@ -38,12 +39,12 @@ task('serve', () => serve());
 // Minimize JS
 const buildJS = () => {
   return pipeline(
-    src(`${path.source}/assets/js/*`),
+    src(`${path.source}assets/js/*`),
     uglify({
       warnings: true,
       compress: true
     }),
-    dest(`${path.dist}/assets/js/`)
+    dest(`${path.dist}assets/js/`)
   );
 };
 task('build-js', buildJS);
@@ -57,7 +58,7 @@ const buildCopy = () => {
     '!./src/assets/js/*',
     '!src/*.html'
   ];
-  return src(sourceFiles).pipe(dest(`${path.dist}/`));
+  return src(sourceFiles).pipe(dest(`${path.dist}`));
 };
 task('build-copy', buildCopy);
 
@@ -82,7 +83,7 @@ const buildSASS = () => {
         suffix: '.min'
       })
     )
-    .pipe(dest('src/assets/css'));
+    .pipe(dest('src/assets/css/'));
 };
 task('build-sass', buildSASS);
 
@@ -119,7 +120,7 @@ task('build-html', () => {
         collapseWhitespace: true
       })
     )
-    .pipe(dest('dist'));
+    .pipe(dest(`${path.dist}`));
 });
 
 // Build
