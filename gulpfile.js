@@ -88,7 +88,7 @@ task('build-sass', buildSASS);
 
 // watch sass
 const watchSASS = () =>
-  watch([`${path.sass}`, 'src/*.html'], series('build-html', 'build-sass'));
+  watch([`${path.sass}`, 'src/*.html'], series('del-css', 'build-html', 'build-sass'));
 task('watch:sass', watchSASS);
 
 // Optimize images
@@ -104,6 +104,11 @@ const buildClean = () => {
   return del([`${path.dist}`, 'tmp/**/*']);
 };
 task('build-clean', buildClean);
+
+const delCSS = () => {
+  return del(['src/assets/css/*.min.css']);
+};
+task('del-css', delCSS);
 
 // Minify HTML
 task('build-html', () => {
