@@ -1,113 +1,132 @@
-const gulp = require('gulp');
+const { src, dest, series, watch, task, parallel } = require('gulp');
 const del = require('del');
 // const browserSync = require('browser-sync').create();
 const liveServer = require('gulp-live-server');
 const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
+const { pipeline } = require('readable-stream');
 const pump = require('pump');
 const smushit = require('gulp-smushit');
 const autoprefixer = require('gulp-autoprefixer');
 const htmlmin = require('gulp-htmlmin');
 const rename = require('gulp-rename');
-const sourcemaps = require('gulp-sourcemaps')
+const sourcemaps = require('gulp-sourcemaps');
 
 // compile SASS Explicit
-sass.compiler = require('node-sass')
+sass.compiler = require('node-sass');
 
-// Static Server
-gulp.task('serve', serve);
-
-function serve() {
-    let server = liveServer.static('/src', 8888);
-    server.start();
-
-    gulp.watch("src/**/*.*").on('change', server.start.bind(server));
-
+// paths
+const path = {
+  root: '/',
+  source: 'src',
+  dist: 'dist',
+  allFiles: 'src/**/*.*',
+  sass: 'src/sass/**/*.*',
+  port: 4000
 };
+
+const serve = (
+  source = path.source ? path.source : path.dist,
+  port = path.port
+) => {
+  let server = liveServer.static(source, port);
+  server.start();
+  watch(path.allFiles).on('change', server.start.bind(server));
+};
+task('serve', () => serve());
 
 // Minimize JS
-gulp.task('build-js', buildJs);
-
-function buildJs(cb) {
-    pump([
-            gulp.src('src/assets/js/*'),
-            uglify(),
-            gulp.dest('dist/assets/js/')
-        ],
-        cb
-    );
+const buildJS = () => {
+  return pipeline(
+    src(`${path.source}/assets/js/*`),
+    uglify({
+      warnings: true,
+      compress: true
+    }),
+    dest(`${path.dist}/assets/js/`)
+  );
 };
+task('build-js', buildJS);
 
 // Copy files to dist
-gulp.task('build-copy', buildCopy);
-
-function buildCopy() {
-    const sourceFiles = ['./src/**/*.*', '!./src/sass/**/*.*'];
-    return gulp.src(sourceFiles)
-        .pipe(gulp.dest('dist/'));
+const buildCopy = () => {
+  let sourceFiles = [
+    path.allFiles,
+    `!${path.sass}`,
+    '!./src/assets/img/*',
+    '!./src/assets/js/*',
+    '!src/*.html'
+  ];
+  return src(sourceFiles).pipe(dest(`${path.dist}/`));
 };
+task('build-copy', buildCopy);
 
 // Minify CSS and ADD vendor prefix
-gulp.task('build-sass', buildSASS);
-
-function buildSASS() {
-    return gulp.src('src/sass/**/*.scss')
+const buildSASS = () => {
+  return src(`${path.sass}`)
     .pipe(sourcemaps.init())
-    .pipe(sass({
+    .pipe(
+      sass({
         outputStyle: 'compressed'
-    }))
+      })
+    )
     .on('error', sass.logError)
-    .pipe(autoprefixer({
-        browsers: ['last 3 versions'],
-    }))
+    .pipe(
+      autoprefixer({
+        browsers: ['last 5 versions']
+      })
+    )
     .pipe(sourcemaps.write('./maps'))
-    .pipe(rename({
+    .pipe(
+      rename({
         suffix: '.min'
-    }))
-    .pipe(gulp.dest('src/assets/css'));
+      })
+    )
+    .pipe(dest('src/assets/css'));
 };
+task('build-sass', buildSASS);
 
-gulp.task('sass:watch', function () {
-    gulp.watch(['src/sass/**/*.*', 'src/*.html'], gulp.series('build-sass'));
-  });
+// watch sass
+const watchSASS = () =>
+  watch([`${path.sass}`, 'src/*.html'], series('build-html', 'build-sass'));
+task('watch:sass', watchSASS);
 
 // Optimize images
-gulp.task('build-img', buildIMG);
-
-function buildIMG() {
-    return gulp.src('src/assets/img/*')
-        .pipe(smushit())
-        .pipe(gulp.dest('dist/assets/img'))
+const buildIMG = () => {
+  return src('src/assets/img/*')
+    .pipe(smushit())
+    .pipe(dest('dist/assets/img'));
 };
-
-// Serve dist files
-// gulp.task('build-serve', buildServe);
-
-// function buildServe() {
-//     browserSync.init({
-//         server: "./dist"
-//     })
-// };
+task('build-img', buildIMG);
 
 // Clean dist and tmp
-gulp.task('build-clean', buildClean);
-
-function buildClean() {
-    return del([
-        'dist/**/*',
-        'tmp/**/*'
-    ]);
+const buildClean = () => {
+  return del([`${path.dist}`, 'tmp/**/*']);
 };
+task('build-clean', buildClean);
 
-// Minify XHTML
-gulp.task('build-html', () => {
-    return gulp.src('src/*.html')
-      .pipe(htmlmin({ removeComments: true, collapseWhitespace: true }))
-      .pipe(gulp.dest('dist'));
-  });
+// Minify HTML
+task('build-html', () => {
+  return src('src/*.html')
+    .pipe(
+      htmlmin({
+        removeComments: true,
+        collapseWhitespace: true
+      })
+    )
+    .pipe(dest('dist'));
+});
 
 // Build
-gulp.task('build', gulp.series('build-clean', 'build-sass','build-js','build-html','build-img', 'build-copy'));
+const buildAll = series(
+  'build-clean',
+  'build-copy',
+  'build-sass',
+  'build-js',
+  'build-html',
+  'build-img'
+);
+task('buildAll', buildAll);
 
 // Run Default
-gulp.task('default', serve);
+task('default', series('watch:sass'));

@@ -6,7 +6,6 @@
   border-radius: 0;
   border: 1px solid $color-stroke;
   background-color: $color-primary;
-  font-weight: 100;
 }
 
 .btn.btn-custom:hover {
@@ -16,15 +15,16 @@
 
 }
 
-.btn.btn-custom-sm {
-  padding: .375rem .8rem;
+.btn.btn-custom-md {
+  padding: .5rem 2rem;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 400!important;
   border: 1px solid $color-stroke;
 }
 
 .btn.btn-custom-lg {
   line-height: 2.0;
-  padding: .5rem 1.6rem;
+  padding: .5rem 2rem;
   font-size: 14px;
+  font-weight: 100;
 }
