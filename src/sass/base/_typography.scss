@@ -24,6 +24,10 @@ body {
     @include sahitya-regular;
     color: $color-stroke !important;
   }
+  &--color-secondary {
+    color: $color-secondary;
+    line-height: 1.6;
+  }
 }
 
 .paragraph-secondary {
@@ -31,5 +35,9 @@ body {
   font-weight: 100;
   line-height: 1.6;
   font-size: 90%;
+}
+
+.display-4.display-custom {
+  font-size: 2rem;
 }
 

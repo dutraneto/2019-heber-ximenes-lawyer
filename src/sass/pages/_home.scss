@@ -127,7 +127,8 @@ Starts on: 04/15/19
     width: 100vw;
     background-image: url("../img/contact-mobile.png");
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: bottom center;
+    background-attachment: fixed;
     // filter: opacity(1);
     -webkit-filter: contrast(1);
     filter: contrast(1);
@@ -144,7 +145,13 @@ Starts on: 04/15/19
 ///////////////////
 
 .agency {
+    // height: 100vh;
+    background-color: $color-background-secondary;
 
+    &__work {
+        max-width: 300px;
+        min-height: auto;
+    }
 }
 
 // -------------------Agency--------------------- //
