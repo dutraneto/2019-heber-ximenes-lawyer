@@ -1,16 +1,17 @@
 const { src, dest, series, watch, task, parallel } = require('gulp');
 const del = require('del');
-// const browserSync = require('browser-sync').create();
-const liveServer = require('gulp-live-server');
 const sass = require('gulp-sass');
+const browserSync = require('browser-sync')
 const uglify = require('gulp-uglify');
 const { pipeline } = require('readable-stream');
-const pump = require('pump');
 const smushit = require('gulp-smushit');
 const autoprefixer = require('gulp-autoprefixer');
 const htmlmin = require('gulp-htmlmin');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
+const plumber = require('gulp-plumber')
+const postcss = require('gulp-postcss')
+const cssnano = require('cssnano')
 
 // compile SASS Explicit
 sass.compiler = require('node-sass');
@@ -20,21 +21,26 @@ const path = {
   root: '/',
   source: 'src/',
   dist: 'dist/',
-  allFiles: 'src/**/*.*',
+  allFiles: './src/**/*.*',
   sass: 'src/sass/**/*.*',
   port: 4000
 };
 
-const serve = (
-  source = path.source ? path.source : path.dist,
-  port = path.port
-) => {
-  let server = liveServer.static(source, port);
-  server.start();
-  // restart server
-  watch(path.allFiles).on('change', server.stop.bind(server));
+const serve = (source=path.source ? path.source : path.dist, port=path.port) => {
+  browserSync.init({
+    server: {
+      baseDir: source
+    },
+    port: port
+  })
 };
-task('serve', () => serve());
+task('serve', () => serve(path.dist, 8080));
+
+// BrowserSync Reload
+const browserSyncReload = () => {
+  browserSync.reload()
+}
+task('browser-reload', browserSyncReload)
 
 // Minimize JS
 const buildJS = () => {
@@ -63,34 +69,30 @@ const buildCopy = () => {
 task('build-copy', buildCopy);
 
 // Minify CSS and ADD vendor prefix
-const buildSASS = () => {
+const css = () => {
+  let postcssPlugins = [
+    // {browsers:['last 3 versions']},
+    cssnano()
+  ]
   return src(`${path.sass}`)
     .pipe(sourcemaps.init())
-    .pipe(
-      sass({
-        outputStyle: 'compressed'
-      })
-    )
+    .pipe(plumber())
+    .pipe(sass({ outputStyle: 'expanded' }))
     .on('error', sass.logError)
-    .pipe(
-      autoprefixer({
-        browsers: ['last 5 versions']
-      })
-    )
+    .pipe(postcss(postcssPlugins))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('./maps'))
-    .pipe(
-      rename({
-        suffix: '.min'
-      })
-    )
-    .pipe(dest('src/assets/css/'));
+    .pipe(dest('./src/assets/css/'))
+    .pipe(browserSync.stream())
 };
-task('build-sass', buildSASS);
+task('build:css', css);
 
 // watch sass
-const watchSASS = () =>
-  watch([`${path.sass}`, 'src/*.html'], series('del-css', 'build-html', 'build-sass'));
-task('watch:sass', watchSASS);
+const watchFiles = () => {
+  watch('src/sass/**/*.*').on('change', series('build:css', 'browser-reload'))
+  watch('./src/*.html').on('change', series('build-html', 'browser-reload'));
+}
+task('watchFiles', () => watchFiles())
 
 // Optimize images
 const buildIMG = () => {
@@ -127,7 +129,7 @@ task('build-html', () => {
 const buildAll = series(
   'build-clean',
   'build-copy',
-  'build-sass',
+  'build:css',
   'build-js',
   'build-html',
   'build-img'
@@ -135,4 +137,4 @@ const buildAll = series(
 task('buildAll', buildAll);
 
 // Run Default
-task('default', series('watch:sass'));
+task('default', parallel('serve', 'watchFiles'));

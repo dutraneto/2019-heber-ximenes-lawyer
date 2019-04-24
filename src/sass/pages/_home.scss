@@ -36,7 +36,7 @@ Starts on: 04/15/19
 ///////////////
 
 .info {
-    height: 130vh;
+    height: 120vh;
     width: 100%;
     background-color: $text-white;
     // display: flex;
@@ -44,10 +44,9 @@ Starts on: 04/15/19
 
     &__bg-color {
         background-color: $color-primary;
-        height: 130vh;
+        height: 120vh;
         width: auto;
     }
-
     &__text {
         width: 220px;
         position: absolute;
@@ -137,6 +136,16 @@ Starts on: 04/15/19
     // }
 }
 
-
-
 // -------------------CONTACT--------------------- //
+
+
+////////////////////
+// Section agency
+///////////////////
+
+.agency {
+
+}
+
+// -------------------Agency--------------------- //
+
