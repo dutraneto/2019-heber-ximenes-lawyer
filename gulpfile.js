@@ -32,7 +32,7 @@ const serve = (
   let server = liveServer.static(source, port);
   server.start();
   // restart server
-  watch(path.allFiles).on('change', server.start.bind(server));
+  watch(path.allFiles).on('change', server.stop.bind(server));
 };
 task('serve', () => serve());
 
@@ -52,11 +52,11 @@ task('build-js', buildJS);
 // Copy files to dist
 const buildCopy = () => {
   let sourceFiles = [
+    path.allFiles,
     `!${path.sass}`,
     '!./src/assets/img/*',
     '!./src/assets/js/*',
     '!src/*.html',
-    path.allFiles,
   ];
   return src(sourceFiles).pipe(dest(`${path.dist}`));
 };
@@ -83,7 +83,7 @@ const buildSASS = () => {
         suffix: '.min'
       })
     )
-    .pipe(dest('src/assets/css'));
+    .pipe(dest('src/assets/css/'));
 };
 task('build-sass', buildSASS);
 
