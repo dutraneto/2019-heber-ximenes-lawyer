@@ -1,4 +1,4 @@
-// Smooth Scroll: https: //www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_animate_smoothscroll
+// // Smooth Scroll: https: //www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_animate_smoothscroll
 $(document).ready(function () {
     // Add smooth scrolling to all links
     $("a").on('click', function (event) {
@@ -24,5 +24,15 @@ $(document).ready(function () {
     });
 });
 
-// Animations 
+// Animations
 new WOW().init();
+
+// embeded map
+function initMap() {
+    var ceara = { lat: -3.756000, lng: -38.510240 };
+    var map = new google.maps.Map(
+        document.getElementById('map'), { zoom: 4, center: ceara }
+    );
+    var marker = new google.maps.Marker({ position: ceara, map: map });
+
+}
