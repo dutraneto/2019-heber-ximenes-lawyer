@@ -1,7 +1,7 @@
 const { src, dest, series, watch, task, parallel } = require('gulp');
 const del = require('del');
 const sass = require('gulp-sass');
-const browserSync = require('browser-sync')
+const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify');
 const { pipeline } = require('readable-stream');
 const smushit = require('gulp-smushit');
@@ -21,26 +21,24 @@ const path = {
   root: '/',
   source: 'src/',
   dist: 'dist/',
-  allFiles: './src/**/*.*',
-  sass: 'src/sass/**/*.*',
+  allFiles: 'src/**/*.*',
+  sass: 'src/sass/**/*.scss',
   port: 4000
 };
 
 const serve = (source=path.source ? path.source : path.dist, port=path.port) => {
   browserSync.init({
+    browser: "firefox developer edition",
+    watch: true,
     server: {
       baseDir: source
     },
     port: port
   })
+  watch(path.sass).on('change', series('build:css', browserSync.reload))
+  watch('./src/*.html').on('change', series('build-html', browserSync.reload));
 };
-task('serve', () => serve(path.dist, 8080));
-
-// BrowserSync Reload
-const browserSyncReload = () => {
-  browserSync.reload()
-}
-task('browser-reload', browserSyncReload)
+task('serve', () => serve(path.source, 5000));
 
 // Minimize JS
 const buildJS = () => {
@@ -82,15 +80,14 @@ const css = () => {
     .pipe(postcss(postcssPlugins))
     .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('./maps'))
-    .pipe(dest('./src/assets/css/'))
+    .pipe(dest('src/assets/css/'))
     .pipe(browserSync.stream())
 };
 task('build:css', css);
 
 // watch sass
 const watchFiles = () => {
-  watch('src/sass/**/*.*').on('change', series('build:css', 'browser-reload'))
-  watch('./src/*.html').on('change', series('build-html', 'browser-reload'));
+
 }
 task('watchFiles', () => watchFiles())
 
@@ -136,5 +133,3 @@ const buildAll = series(
 );
 task('buildAll', buildAll);
 
-// Run Default
-task('default', parallel('serve', 'watchFiles'));
