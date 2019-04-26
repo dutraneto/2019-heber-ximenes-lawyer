@@ -5,7 +5,7 @@ const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify');
 const { pipeline } = require('readable-stream');
 const smushit = require('gulp-smushit');
-const autoprefixer = require('gulp-autoprefixer');
+const autoprefixer = require('autoprefixer');
 const htmlmin = require('gulp-htmlmin');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
@@ -69,7 +69,9 @@ task('build-copy', buildCopy);
 // Minify CSS and ADD vendor prefix
 const css = () => {
   let postcssPlugins = [
-    // {browsers:['last 3 versions']},
+    autoprefixer({
+      grid: true,
+      browsers: ['last 3 versions', "ie 6-8", 'Firefox > 20']}),
     cssnano()
   ]
   return src(`${path.sass}`)
@@ -125,8 +127,8 @@ task('build-html', () => {
 // Build
 const buildAll = series(
   'build-clean',
-  'build-copy',
   'build:css',
+  'build-copy',
   'build-js',
   'build-html',
   'build-img'

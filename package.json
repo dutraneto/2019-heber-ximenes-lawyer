@@ -10,10 +10,11 @@
     "readable-stream": "^3.3.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.4",
+    "autoprefixer": "^9.5.1",
+    "browser-sync": "^2.26.5",
     "cssnano": "^4.1.10",
     "del": "latest",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.1",
     "gulp-autoprefixer": "latest",
     "gulp-clean-css": "latest",
     "gulp-cssnano": "^2.1.3",
