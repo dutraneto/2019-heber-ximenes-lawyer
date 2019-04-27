@@ -21,6 +21,10 @@
   }
 }
 
+.form-group.border-color-gray {
+    border: 1px solid $color-button-secondary;
+}
+
 .form-control.form-control-custom {
   padding: 0 5px;
   font-size: 10px;
