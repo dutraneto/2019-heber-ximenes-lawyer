@@ -4,10 +4,6 @@
     background-color: $color-primary;
   }
 
-  &__form {
-
-  }
-
   &__logo {
     width: 40%;
     padding: 0;
@@ -23,19 +19,26 @@
   &__info {
     background-color: $color-secondary;
 
+    &-arrowup {
+      z-index: 10;
+      right:1em;
+      top: 50%;
+      transform: translateY(-50%)
+    }
+
     &-oab {
 
       &__figcap {
         color: $color-text-gray;
         font-size: 80%;
-        font-weight: 100;
+        font-weight: 400;
       }
     }
 
     &--text a {
         color: $color-text-gray;
         font-size: 80%;
-        font-weight: 100;
+        font-weight: 400;
     }
   }
 }
