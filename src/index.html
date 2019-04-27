@@ -109,16 +109,15 @@
 		<section class="info">
 			<article class="d-flex">
 				<aside class="info__bg-color col-2"></aside>
-				<div class="info__frame">
-					<img class="info__pic" src="./assets/img/avatar.png" alt="look at my picture">
-				</div>
-				<div class="info__text">
-					<h4 class="heading-secondary">Dr. Heber Ximenes</h4>
-					<p class="paragraph-secondary text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id
-						erat nulla. Donec eu neque justo. Praesent gravida ligula eget </p>
-					<button class="btn btn-md btn-custom btn-custom-md">Leia mais</button>
-				</div>
-				</aside>
+					<div class="info__frame">
+						<img class="info__pic" src="./assets/img/avatar.png" alt="look at my picture">
+					</div>
+					<div class="info__text">
+						<h4 class="heading-secondary">Dr. Heber Ximenes</h4>
+						<p class="paragraph-secondary text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id
+							erat nulla. Donec eu neque justo. Praesent gravida ligula eget </p>
+						<button class="btn btn-md btn-custom btn-custom-md">Leia mais</button>
+					</div>
 			</article>
 		</section> <!--  INFO  -->
 		<section class="services py-5">
@@ -276,10 +275,29 @@
 				</div>
 			</article>
 		</section> <!-- agency -->
-		<section id="map">
-				<iframe class="map" src="https://www.google.com/maps/d/embed?mid=1Iyew8EmJd5QzukwK2QcwNQ1aUtqNtgOW" width="" height=""></iframe>
-		</section>
-	</main>
+		<section id="map" class="my-0">
+				<iframe class="map my-0 border-0" src="https://www.google.com/maps/d/embed?mid=1Iyew8EmJd5QzukwK2QcwNQ1aUtqNtgOW" width="" height=""></iframe>
+		</section> <!--map-->
+	</main> <!--main-->
+	<footer class="footer">
+		<div class="footer__first d-flex align-items-end">
+			<figure class="footer__logo text-center">
+				<img  class="" src="assets/img/Initials.png" alt="logo Heber Ximenes - Advocacia e Consultoria Juridica">
+				<figcaption class="text-center footer__logo-text">Advocacia e Consultoria Jurídica</figcaption>
+			</figure>
+			<form class="footer__form flex-grow-1 mx-4 mb-2">
+				<div class="form-group mb-2 d-flex">
+					<input type="email" class="form-control form-control-custom d-inline rounded-0 border-0" id="inputEmail" placeholder="Seu melhor e-mail"
+						required>
+					<button type="submit" class="btn btn-custom-plane">
+						<img src="assets/svg/plane.svg" alt="botao enviar email">
+					</button>
+				</div>
+
+			</form>
+		</div>
+		<div class="footer__info"></div>
+	</footer>
 
 	<!-- SCRIPTS -->
 	<script async src="vendor/js/jquery.min.js"></script>

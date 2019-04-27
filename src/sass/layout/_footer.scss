@@ -1,5 +1,27 @@
-// -----------------------------------------------------------------------------
-// This file contains all styles related to the footer of the site/application.
-// -----------------------------------------------------------------------------
+.footer {
+  margin-top: -6px;
+  &__first {
+    background-color: $color-primary;
+  }
 
+  &__form {
 
+  }
+
+  &__logo {
+    // width: 40%;
+    padding: 0;
+    margin: 10px 5px;
+
+    &-text {
+      color: $color-text-gray;
+      @include sahitya-regular;
+      font-size: 50%;
+    }
+  }
+}
+
+.form-control.form-control-custom {
+  padding: 0 5px;
+  font-size: 10px;
+}

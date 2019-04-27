@@ -28,3 +28,13 @@
   font-size: 14px;
   font-weight: 100;
 }
+
+// button send email plane
+
+.btn.btn-custom-plane {
+  padding: 3px 10px 1px 8px;
+  display: inline;
+  border-radius: 0;
+  // border: 1px solid $color-stroke;
+  background-color: $color-button-secondary;
+}
