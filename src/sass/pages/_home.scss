@@ -137,6 +137,12 @@ Starts on: 04/15/19
     // }
 }
 
+.form-control {
+    &::placeholder {
+    color: $color-text-gray !important;
+  }
+}
+
 // -------------------CONTACT--------------------- //
 
 
