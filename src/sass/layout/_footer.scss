@@ -9,7 +9,7 @@
   }
 
   &__logo {
-    // width: 40%;
+    width: 40%;
     padding: 0;
     margin: 10px 5px;
 
@@ -17,6 +17,19 @@
       color: $color-text-gray;
       @include sahitya-regular;
       font-size: 52%;
+    }
+  }
+
+  &__info {
+    background-color: $color-secondary;
+
+    &-oab {
+
+      &__figcap {
+        color: $color-text-gray;
+        font-size: 80%;
+        font-weight: 100;
+      }
     }
   }
 }
