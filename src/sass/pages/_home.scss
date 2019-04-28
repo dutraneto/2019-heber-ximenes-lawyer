@@ -1,3 +1,4 @@
+
 /*
 
 Title: Heber Ximenes - Advocacia
@@ -16,17 +17,27 @@ Starts on: 04/15/19
 ///////////////
 
 .section-hero {
-    height: 85vh;
+    display: none;
+    height: 100vh;
     width: 100%;
+    background-size: contain;
     // background: url("/dist/assets/img/hero.png") $color-primary;
-    background-image: linear-gradient(to right bottom,
-                                    rgba(31, 50, 85, .4),
-                                    rgba(74, 103, 143, 0.4)),
-                                    url(../img/hero.png);
-    background-position:  right -326px top -100px;
+    // background-image: linear-gradient(to right bottom,
+    //                                 rgba(31, 50, 85, .4),
+    //                                 rgba(74, 103, 143, 0.4)),
+    //                                 url(../img/hero.png);
+    background-image: url(../img/hero.png);
+    background-position: right top;
+    // background-position:  right -326px top -100px;
     background-repeat: no-repeat;
     // object-fit: contain;
     // background-size: 100%;
+    @include respond(phone) {
+        background-image: url(../img/hero-phone.png);
+        background-size: cover;
+        background-position: none;
+        height: 90vh;
+     }
 }
 // -------------------HERO--------------------- //
 

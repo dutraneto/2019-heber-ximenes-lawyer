@@ -1,0 +1,49 @@
+// MEDIA QUERIES MANAGER
+/*
+
+TODO:
+
+0 - 600px:       PHONE
+600 - 900px:     TABLET PORTRAIT
+900 - 1200px:    TABLET LANDSCAPE
+1200 - 1800:     NORMAL STYLES
+1800px +:        BIG SCREENS
+
+
+@mixin respond-phone {
+  @media (max-width: 600px) { @content };
+}
+
+// $breakpoint argument choices:
+/*
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+Important: we use ems because rems are fails
+
+1 em = 16px
+
+TODO: ORDER:   BASE + TYPOGRAPHY > GENERAL LAYOUT + GRID > PAGE LAYOUT > COMPONENTS
+
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) { @content }; // 600px
+  }
+
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) { @content };  // 900px
+  }
+
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) { @content };  // 1200px
+  }
+
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) { @content };  // 1800px
+  }
+}
+
