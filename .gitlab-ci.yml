@@ -1,12 +1,12 @@
 theme: jekyll-theme-cayman
-pages:
-  stage: deploy
-  script:
-  - mkdir .public
-  - cp -r dist/* .public
-  - mv .public public
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
+# pages:
+#   stage: deploy
+#   script:
+#   - mkdir .public
+#   - cp -r dist/* .public
+#   - mv .public public
+#   artifacts:
+#     paths:
+#     - public
+#   only:
+#   - master
