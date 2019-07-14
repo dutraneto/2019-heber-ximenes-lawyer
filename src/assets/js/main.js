@@ -1,5 +1,5 @@
 // // Smooth Scroll: https: //www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_animate_smoothscroll
-$(document).ready(function () {
+$(function () {
     // Add smooth scrolling to all links
     $("a").on('click', function (event) {
 

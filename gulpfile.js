@@ -73,7 +73,7 @@ const css = () => {
 	let postcssPlugins = [
 		autoprefixer({
 			grid: true,
-			browsers: ['last 3 versions', 'ie 6-8', 'Firefox > 20']
+			// browsers: ['last 3 versions', 'ie 6-8', 'Firefox > 20']
 		}),
 		cssnano()
 	]

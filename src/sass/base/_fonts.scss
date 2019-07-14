@@ -1,7 +1,13 @@
 // -----------------------------------------------------------------------------
 // This file contains all @font-face declarations, if any.
 // -----------------------------------------------------------------------------
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400|Sahitya');
+// @import url('https://fonts.googleapis.com/css?family=Roboto:300,400|Sahitya');
+@font-face {
+  src: url('/src/assets/fonts/Roboto/Roboto-Thin.ttf'),
+        url('/src/assets/fonts/Roboto/Roboto-Regular.ttf'),
+        url('/src/assets/fonts/Sahitya/Sahitya-Bold.ttf'),
+        url('/src/assets/fonts/Sahitya/Sahitya-Regular.ttf');
+}
 
 $font-roboto: 'Roboto', sans-serif;
 $font-sahitya: 'Sahitya', serif;

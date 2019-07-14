@@ -7,7 +7,6 @@
  */
 /* Document
    ========================================================================== */
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400|Sahitya");
 html {
   font-family: sans-serif;
   /* 1 */
@@ -508,6 +507,10 @@ Important: we use ems because rems are fails
 TODO: ORDER:   BASE + TYPOGRAPHY > GENERAL LAYOUT + GRID > PAGE LAYOUT > COMPONENTS
 
 */
+@font-face {
+  src: url("/src/assets/fonts/Roboto/Roboto-Thin.ttf"), url("/src/assets/fonts/Roboto/Roboto-Regular.ttf"), url("/src/assets/fonts/Sahitya/Sahitya-Bold.ttf"), url("/src/assets/fonts/Sahitya/Sahitya-Regular.ttf");
+}
+
 /**
  * Basic typography style for copy text
  */
