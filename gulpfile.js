@@ -4,7 +4,7 @@ const sass = require('gulp-sass')
 const browserSync = require('browser-sync').create()
 const uglify = require('gulp-uglify')
 const { pipeline } = require('readable-stream')
-const smushit = require('gulp-smushit')
+const imagemin = require('gulp-imagemin')
 const autoprefixer = require('autoprefixer')
 const htmlmin = require('gulp-htmlmin')
 const rename = require('gulp-rename')
@@ -36,7 +36,7 @@ const serve = (source = path.source ? path.source : path.dist, port = path.port)
 		port: port
 	})
 	watch(path.sass).on('change', series('build:css', browserSync.reload))
-	watch('./src/*.html').on('change', series('build-html', browserSync.reload))
+	watch('./src/*.html').on('change', series('build:html', browserSync.reload))
 }
 task('serve', () => serve(path.source, 5000))
 
@@ -51,7 +51,7 @@ const buildJS = () => {
 		dest(`${path.dist}assets/js/`)
 	)
 }
-task('build-js', buildJS)
+task('build:js', buildJS)
 
 // Copy files to dist
 const buildCopy = () => {
@@ -66,13 +66,13 @@ const buildCopy = () => {
 	]
 	return src(sourceFiles).pipe(dest(`${path.dist}`))
 }
-task('build-copy', buildCopy)
+task('build:copy', buildCopy)
 
 // Minify CSS and ADD vendor prefix
 const css = () => {
 	let postcssPlugins = [
 		autoprefixer({
-			grid: true,
+			grid: true
 			// browsers: ['last 3 versions', 'ie 6-8', 'Firefox > 20']
 		}),
 		cssnano()
@@ -93,29 +93,29 @@ task('build:css', css)
 
 // watch sass
 const watchFiles = () => {}
-task('watchFiles', () => watchFiles())
+task('watch:files', () => watchFiles())
 
 // Optimize images
 const buildIMG = () => {
 	return src('src/assets/img/*')
-		.pipe(smushit())
+		.pipe(imagemin([imagemin.optipng({ optimizationLevel: 5 })]))
 		.pipe(dest('dist/assets/img'))
 }
-task('build-img', buildIMG)
+task('build:img', buildIMG)
 
 // Clean dist and tmp
 const buildClean = () => {
 	return del([`${path.dist}`, 'tmp/**/*'])
 }
-task('build-clean', buildClean)
+task('build:clean', buildClean)
 
 const delCSS = () => {
 	return del(['src/assets/css/*.min.css'])
 }
-task('del-css', delCSS)
+task('del:css', delCSS)
 
 // Minify HTML
-task('build-html', () => {
+task('build:html', () => {
 	return src('src/*.html')
 		.pipe(
 			htmlmin({
@@ -128,11 +128,11 @@ task('build-html', () => {
 
 // Build
 const buildAll = series(
-	'build-clean',
+	'build:clean',
 	'build:css',
-	'build-copy',
-	'build-js',
-	'build-html',
-	'build-img'
+	'build:copy',
+	'build:js',
+	'build:html',
+	'build:img'
 )
-task('buildAll', buildAll)
+task('build:all', buildAll)
