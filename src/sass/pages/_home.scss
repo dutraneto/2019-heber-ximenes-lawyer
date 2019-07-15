@@ -54,8 +54,9 @@ Starts on: 04/15/19
     position: relative;
 
     @include respond(phone) {
-        height: 120vh;
-        display: bloc
+        height: 100vh;
+        display: block;
+        margin-bottom: 10rem;
     }
 
     &__bg-color {
@@ -63,7 +64,8 @@ Starts on: 04/15/19
         height: 60vh;
         width: 20%;
         @include respond(phone) {
-            height: 120vh;
+            height: 130vh;
+            width: 25%;
         }
     }
     &__text {
@@ -80,7 +82,7 @@ Starts on: 04/15/19
     }
 
     &__frame {
-        margin: 30px 0 30px -60px;
+        margin: 50px 10px 30px -70px;
         // position: absolute;
         max-width: 300px;
         height: 400px;
@@ -203,4 +205,3 @@ Starts on: 04/15/19
     background-color: $color-background-secondary;
 }
 // -------------------Agency--------------------- //
-

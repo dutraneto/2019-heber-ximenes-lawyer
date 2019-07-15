@@ -706,8 +706,9 @@ Starts on: 04/15/19
 
 @media only screen and (max-width: 37.5em) {
   .info {
-    height: 120vh;
-    display: bloc;
+    height: 100vh;
+    display: block;
+    margin-bottom: 10rem;
   }
 }
 
@@ -719,7 +720,8 @@ Starts on: 04/15/19
 
 @media only screen and (max-width: 37.5em) {
   .info__bg-color {
-    height: 120vh;
+    height: 130vh;
+    width: 25%;
   }
 }
 
@@ -737,7 +739,7 @@ Starts on: 04/15/19
 }
 
 .info__frame {
-  margin: 30px 0 30px -60px;
+  margin: 50px 10px 30px -70px;
   max-width: 300px;
   height: 400px;
   border: 2px solid #1f3255;
