@@ -1,3 +1,7 @@
+/**
+ * TODO: change plugin image-min to gulp-webp
+ * for optimizing images
+ */
 const { src, dest, series, watch, task, parallel } = require('gulp')
 const del = require('del')
 const sass = require('gulp-sass')
@@ -5,6 +9,8 @@ const browserSync = require('browser-sync').create()
 const uglify = require('gulp-uglify')
 const { pipeline } = require('readable-stream')
 const imagemin = require('gulp-imagemin')
+// better approach for compressing images
+const webp = require('gulp-webp')
 const autoprefixer = require('autoprefixer')
 const htmlmin = require('gulp-htmlmin')
 const rename = require('gulp-rename')
