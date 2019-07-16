@@ -8,12 +8,11 @@ body {
 .heading-first {
   @include sahitya-regular;
   color: $color-stroke;
-  font-size: 1.6em;
+  // font-size: 1.6em;
 }
 
 .paragraph {
   color: $text-white;
-
 }
 
 .heading-secondary {
@@ -40,4 +39,3 @@ body {
 .display-4.display-custom {
   font-size: 2rem;
 }
-

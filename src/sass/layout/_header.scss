@@ -5,7 +5,7 @@
   background-color: $color-primary;
   border: 1px solid $color-stroke;
   &__logo {
-    width: 70px;
+    width: 80px;
   }
 }
 
@@ -25,3 +25,7 @@ button.navbar-toggler.custom-toggler {
 .custom-toggler .navbar-toggler-icon {
   background-image: url("../svg/menu.svg");
 }
+
+// .nav-item {
+//   margin-right: 3rem;
+// }

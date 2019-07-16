@@ -9,8 +9,6 @@ const browserSync = require('browser-sync').create()
 const uglify = require('gulp-uglify')
 const { pipeline } = require('readable-stream')
 const imagemin = require('gulp-imagemin')
-// better approach for compressing images
-const webp = require('gulp-webp')
 const autoprefixer = require('autoprefixer')
 const htmlmin = require('gulp-htmlmin')
 const rename = require('gulp-rename')
@@ -104,7 +102,7 @@ task('watch:files', () => watchFiles())
 // Optimize images
 const buildIMG = () => {
 	return src('src/assets/img/*')
-		.pipe(imagemin([imagemin.optipng({ optimizationLevel: 5 })]))
+		.pipe(imagemin())
 		.pipe(dest('dist/assets/img'))
 }
 task('build:img', buildIMG)
