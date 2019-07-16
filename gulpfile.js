@@ -32,12 +32,13 @@ const path = {
 
 const serve = (source = path.source ? path.source : path.dist, port = path.port) => {
 	browserSync.init({
-		browser: 'firefox developer edition',
+		browser: 'Google Chrome',
 		watch: true,
 		server: {
 			baseDir: source
 		},
-		port: port
+		port: port,
+		stream: true
 	})
 	watch(path.sass).on('change', series('build:css', browserSync.reload))
 	watch('./src/*.html').on('change', series('build:html', browserSync.reload))
