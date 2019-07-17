@@ -2,14 +2,19 @@
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
 .header {
+  padding: 0 3.75rem;
   background-color: $color-primary;
   border: 1px solid $color-stroke;
   &__logo {
-    width: 80px;
+    width: 5rem;
   }
 }
 
 // remove padding from bootstrap
+.navbar {
+  padding-left: 0;
+  padding-right: 0;
+}
 .navbar-brand {
   padding-top: 0 !important;
   padding-bottom: 0 !important;

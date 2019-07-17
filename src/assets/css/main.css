@@ -556,13 +556,23 @@ body {
   font-size: 2rem;
 }
 
+.display-4.display-custom-2 {
+  font-size: 2.5rem;
+}
+
 .header {
+  padding: 0 3.75rem;
   background-color: #1f3255;
   border: 1px solid #ffbf00;
 }
 
 .header__logo {
-  width: 80px;
+  width: 5rem;
+}
+
+.navbar {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .navbar-brand {
@@ -677,6 +687,7 @@ Starts on: 04/15/19
 
 */
 .section-hero {
+  padding: 0 3.75rem;
   display: none;
   height: 90vh;
   width: 100%;
@@ -725,9 +736,7 @@ Starts on: 04/15/19
 }
 
 .info__text {
-  width: 40%;
-  display: inline;
-  margin-left: 120px;
+  width: 50%;
 }
 
 @media only screen and (max-width: 37.5em) {
@@ -738,7 +747,7 @@ Starts on: 04/15/19
 }
 
 .info__frame {
-  margin-left: -185px;
+  margin-left: -137px;
   max-width: 300px;
   height: 400px;
   border: 2px solid #1f3255;
@@ -756,13 +765,13 @@ Starts on: 04/15/19
 }
 
 .services {
-  padding: 5rem 0;
+  padding: 5rem 3.75rem;
   background-color: #FAFAFA;
 }
 
 .services__info {
   background: url("../img/lady-justice.png") no-repeat center center;
-  background-size: cover;
+  background-size: contain;
 }
 
 .services__card {
@@ -807,6 +816,7 @@ Starts on: 04/15/19
   background-repeat: no-repeat;
   background-position: bottom center;
   background-attachment: fixed;
+  background-size: cover;
   -webkit-filter: contrast(1);
   filter: contrast(1);
 }
@@ -816,11 +826,12 @@ Starts on: 04/15/19
 }
 
 .agency {
+  padding: 5rem 3.75rem;
   background-color: #FAFAFA;
 }
 
 .agency__work {
-  max-width: 300px;
+  min-width: 23.75em;
   height: 300px;
 }
 
