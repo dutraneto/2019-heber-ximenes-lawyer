@@ -27,6 +27,10 @@ body {
     color: $color-secondary;
     line-height: 1.6;
   }
+  &--color-white {
+    @include sahitya-regular;
+    color: $text-white;
+  }
 }
 
 .paragraph-secondary {

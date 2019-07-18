@@ -114,17 +114,18 @@ Starts on: 04/15/19
     background-color: $color-background-secondary;
 
     &__info {
-        background: url("../img/lady-justice.png") no-repeat center center;
+        background: url("../img/lady-justice.png") no-repeat top center;
         background-size: contain;
     }
 
     &__card {
         border: 1px solid $color-stroke;
-        height: 250px;
-        width: 250px;
-        margin: 0 auto;
+        height: 18.75rem;
+        min-width: 18.75rem;
+        margin-left: 1.5rem;
+        margin-bottom: 1.5rem;
         &:not(:first-child) {
-            margin-top: 35px;
+            // margin-top: 35px;
         }
 
         @include respond(phone) {
@@ -155,6 +156,7 @@ Starts on: 04/15/19
 ///////////////////
 
 .contact {
+    padding-bottom: 9rem;
     height: 100vh;
     width: 100vw;
     background-image: url("../img/contact-desktop.jpg");
@@ -184,12 +186,16 @@ Starts on: 04/15/19
 ///////////////////
 
 .agency {
-    // height: 100vh;
+    height: 100vh;
     padding: 5rem 3.75rem;
     background-color:$color-background-secondary;
     &__work {
         min-width: 23.75em;
         height: 300px;
+    }
+
+    &__figure {
+        margin: 2em 2em 2em 0;
     }
 }
 // -------------------Agency--------------------- //

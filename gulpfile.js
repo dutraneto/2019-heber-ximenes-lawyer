@@ -37,8 +37,7 @@ const serve = (source = path.source ? path.source : path.dist, port = path.port)
 		server: {
 			baseDir: source
 		},
-		port: port
-		stream: true
+		port: port,
 	})
 	watch(path.sass).on('change', series('build:css', browserSync.reload))
 	watch('./src/*.html').on('change', series('build:html', browserSync.reload))

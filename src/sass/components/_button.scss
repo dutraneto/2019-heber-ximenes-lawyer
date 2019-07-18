@@ -9,7 +9,7 @@
 }
 
 .btn.btn-custom:hover {
-  background-color: lighten($color-primary, 3%);
+  background-color: lighten($color-primary, 5%);
   color: $color-stroke;
   border-color: $color-stroke;
 
@@ -26,6 +26,13 @@
   line-height: 2.0;
   padding: .5rem 2rem;
   font-size: 14px;
+  font-weight: 100;
+}
+
+.btn.btn-custom-xl {
+  line-height: 2.0;
+  padding: .575rem 5rem;
+  font-size: 16px;
   font-weight: 100;
 }
 

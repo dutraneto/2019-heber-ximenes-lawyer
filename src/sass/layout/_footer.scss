@@ -1,6 +1,8 @@
 .footer {
+  // to handle with gaps between map and footer
   margin-top: -6px;
   &__first {
+    padding: .225rem 3.75rem;
     background-color: $color-primary;
   }
 
@@ -14,30 +16,38 @@
       @include sahitya-regular;
       font-size: 52%;
     }
+    &-img {
+      width: 5rem;
+    }
   }
 
   &__info {
+    padding-left: 3.75rem;
+    padding-right: 3.75rem;
     background-color: $color-secondary;
 
     &-arrowup {
-      z-index: 10;
-      right:1em;
-      top: 50%;
+      z-index: 100;
+      right:1rem;
+      bottom: 1rem;
       transform: translateY(-50%)
+    }
+    &-arrowup:hover {
+      transform: translateY(-60%)
     }
 
     &-oab {
 
       &__figcap {
         color: $color-text-gray;
-        font-size: 80%;
+        font-size: 100%;
         font-weight: 400;
       }
     }
 
     &--text a {
         color: $color-text-gray;
-        font-size: 80%;
+        font-size: 100%;
         font-weight: 400;
     }
   }
