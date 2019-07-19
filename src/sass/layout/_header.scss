@@ -1,23 +1,66 @@
+/*
+
+Title: Heber Ximenes - Advocacia
+Author: J Dutra M Nt
+Author URL: https://dutraneto.com/portfolio
+Starts on: 04/15/19
+
+*/
+
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
 .header {
-  padding: 0 3.75rem;
-  background-color: $color-primary;
-  border: 1px solid $color-stroke;
   &__logo {
     width: 5rem;
   }
+
+
+  ////////////////
+  // Section Hero
+  ///////////////
+
+  .section-hero {
+    padding: 1px 7.75rem;
+    background-color: $color-primary;
+    // display: none;
+    height: 75vh;
+    width: 100%;
+    background-size: cover;
+    // background: url("/dist/assets/img/hero.png") $color-primary;
+    // background-image: linear-gradient(to right bottom,
+    //                                 rgba(31, 50, 85, .4),
+    //                                 rgba(74, 103, 143, 0.4)),
+    //                                 url(../img/hero.png);
+    background-image: url(../img/hero.jpg);
+    background-position: right bottom;
+    // background-position:  right -326px top -100px;
+    background-repeat: no-repeat;
+
+    // object-fit: contain;
+    // background-size: 100%;
+    @include respond(phone) {
+      background-image: url(../img/hero-phone.jpg);
+      background-size: cover;
+      background-position: right top;
+      height: 90vh;
+    }
+  }
 }
 
-// remove padding from bootstrap
 .navbar {
-  padding-left: 0;
-  padding-right: 0;
+  padding: .7rem 1rem;
+}
+.navbar.border-stroke {
+  border:none;
+  border: 1px solid $color-stroke;
 }
 .navbar-brand {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+}
+.navbar.navbar-dark.navbar-navy {
+  background-color: $color-primary;
 }
 
 button.navbar-toggler.custom-toggler {
@@ -30,7 +73,4 @@ button.navbar-toggler.custom-toggler {
 .custom-toggler .navbar-toggler-icon {
   background-image: url("../svg/menu.svg");
 }
-
-// .nav-item {
-//   margin-right: 3rem;
-// }
+// -------------------HERO--------------------- //

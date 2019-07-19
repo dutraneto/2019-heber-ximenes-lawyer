@@ -566,24 +566,54 @@ body {
   font-size: 2.5rem;
 }
 
-.header {
-  padding: 0 3.75rem;
-  background-color: #1f3255;
-  border: 1px solid #ffbf00;
-}
+/*
 
+Title: Heber Ximenes - Advocacia
+Author: J Dutra M Nt
+Author URL: https://dutraneto.com/portfolio
+Starts on: 04/15/19
+
+*/
 .header__logo {
   width: 5rem;
 }
 
+.header .section-hero {
+  padding: 1px 7.75rem;
+  background-color: #1f3255;
+  height: 75vh;
+  width: 100%;
+  background-size: cover;
+  background-image: url(../img/hero.jpg);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .header .section-hero {
+    background-image: url(../img/hero-phone.jpg);
+    background-size: cover;
+    background-position: right top;
+    height: 90vh;
+  }
+}
+
 .navbar {
-  padding-left: 0;
-  padding-right: 0;
+  padding: .7rem 1rem;
+}
+
+.navbar.border-stroke {
+  border: none;
+  border: 1px solid #ffbf00;
 }
 
 .navbar-brand {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+}
+
+.navbar.navbar-dark.navbar-navy {
+  background-color: #1f3255;
 }
 
 button.navbar-toggler.custom-toggler {
@@ -779,26 +809,6 @@ Author URL: https://dutraneto.com/portfolio
 Starts on: 04/15/19
 
 */
-.section-hero {
-  padding: 0 3.75rem;
-  display: none;
-  height: 90vh;
-  width: 100%;
-  background-size: cover;
-  background-image: url(../img/hero.jpg);
-  background-position: right bottom;
-  background-repeat: no-repeat;
-}
-
-@media only screen and (max-width: 37.5em) {
-  .section-hero {
-    background-image: url(../img/hero-phone.jpg);
-    background-size: cover;
-    background-position: right top;
-    height: 90vh;
-  }
-}
-
 .info {
   height: 80vh;
   width: 100%;

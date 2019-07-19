@@ -12,36 +12,6 @@ Starts on: 04/15/19
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
 
-////////////////
-// Section Hero
-///////////////
-
-.section-hero {
-    padding: 0 3.75rem;
-    display: none;
-    height: 90vh;
-    width: 100%;
-    background-size: cover;
-    // background: url("/dist/assets/img/hero.png") $color-primary;
-    // background-image: linear-gradient(to right bottom,
-    //                                 rgba(31, 50, 85, .4),
-    //                                 rgba(74, 103, 143, 0.4)),
-    //                                 url(../img/hero.png);
-    background-image: url(../img/hero.jpg);
-    background-position: right bottom;
-    // background-position:  right -326px top -100px;
-    background-repeat: no-repeat;
-    // object-fit: contain;
-    // background-size: 100%;
-    @include respond(phone) {
-        background-image: url(../img/hero-phone.jpg);
-        background-size: cover;
-        background-position: right top;
-        height: 90vh;
-     }
-}
-// -------------------HERO--------------------- //
-
 
 ////////////////
 // Section Info
