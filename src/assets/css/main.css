@@ -810,7 +810,9 @@ Starts on: 04/15/19
 
 */
 .info {
-  height: 80vh;
+  background-image: url("../img/law-scale.jpg");
+  background-position: center right;
+  background-repeat: no-repeat;
   width: 100%;
   background-color: #FFFFFF;
   display: flex;
@@ -827,7 +829,7 @@ Starts on: 04/15/19
 
 .info__bg-color {
   background-color: #1f3255;
-  height: 80vh;
+  height: 60vh;
   width: 20%;
 }
 
