@@ -40,7 +40,10 @@
     "maintained node versions",
     "not dead"
   ],
-  "scripts": {},
+  "scripts": {
+    "start": "gulp serve",
+    "build": "gulp build:all"
+  },
   "author": "DutraNeto",
   "license": "ISC"
 }
