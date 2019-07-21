@@ -77,7 +77,7 @@
 					<figure class="d-flex flex-column align-items-center m-0">
 						<img class="header__logo d-inline text-center" src="./assets/img/logo.jpg"
 							alt="logo Heber Ximenes - Advocacia e Consultoria Juridica">
-						<figcaption class="text-center footer__logo-text">Advocacia e Consultoria Jurídica</figcaption>
+						<figcaption class="text-center header__logo-text">Advocacia e Consultoria Jurídica</figcaption>
 					</figure>
 				</a>
 				<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse"
@@ -121,11 +121,11 @@
 		<section class="info" id="info">
 			<aside class="info__bg-color float-left"></aside>
 			<!--blue column-->
-			<article class="d-flex flex-row flex-wrap align-items-center">
-				<div class="info__frame">
-					<img class="info__pic" src="./assets/img/avatar-better.jpg" alt="look at my picture">
-				</div>
-				<div class="info__text ml-auto mr-auto">
+			<article class="info__disp ">
+				<figure class="info__frame my-5">
+					<img class="info__pic img-fluid" src="./assets/img/avatar-better.jpg" alt="look at my picture">
+				</figure>
+				<div class="info__text h-100 my-auto ml-auto mr-auto d-flex flex-column align-items-start justify-content-center mb-5">
 					<h4 class="heading-secondary">Dr. Heber Ximenes</h4>
 					<p class="paragraph-secondary text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						Mauris id
@@ -143,9 +143,9 @@
 			</article>
 		</section> <!--  INFO  -->
 		<section class="services" id="services">
-			<article class="container-fluid">
+			<article class="container-fluid px-0">
 				<div class="row no-gutters">
-					<div class="col-sm-12 col-md-5 services__info">
+					<div class="col-sm-12 col-md-5 services__info h-100 m-auto">
 						<h4 class="heading-secondary">Áreas de Atuação do Direito</h4>
 						<p class="paragraph-secondary"><em><strong>Lorem ipsum dolor sit amet lrem ipsum
 									done</strong></em></p>
@@ -171,53 +171,31 @@
 							eleifend.
 							Maecenas in turpis luctus nisi molestie consequat ac tempor erat. Nunc at pulvinar orci.
 							Donec efficitur
-							diam eget nulla fringilla semper. Vestibulum pharetra efficitur euismod. Vestibulum
-							hendrerit arcu porta
-							felis ornare, eget vehicula dui finibus. Donec mauris mauris, ullamcorper a hendrerit id,
-							volutpat eu
-							elit. Cras elit ligula, luctus non mi rutrum, condimentum placerat sem. Maecenas lorem eros,
-							vestibulum
-							vel mollis molestie, venenatis eget ante.
-						</p>
-						<p class="paragraph-secondary text-muted">
-							Vestibulum arcu risus, sollicitudin vulputate elementum venenatis, dictum sed sapien. Donec
-							porttitor
-							magna id convallis vestibulum. In hac habitasse platea dictumst. In placerat sed turpis id
-							eleifend.
-							Maecenas in turpis luctus nisi molestie consequat ac tempor erat. Nunc at pulvinar orci.
-							Donec efficitur
-							diam eget nulla fringilla semper. Vestibulum pharetra efficitur euismod. Vestibulum
-							hendrerit arcu porta
-							felis ornare, eget vehicula dui finibus. Donec mauris mauris, ullamcorper a hendrerit id,
-							volutpat eu
-							elit. Cras elit ligula, luctus non mi rutrum, condimentum placerat sem. Maecenas lorem eros,
-							vestibulum
-							vel mollis molestie, venenatis eget ante.
 						</p>
 						<button class="btn btn-custom btn-custom-md">Leia mais</button>
 					</div>
 					<div class="col-sm-12 col-md-7 services__container d-flex flex-wrap justify-content-center">
 						<div class="services__card d-flex align-items-center justify-content-center">
 							<figure class="text-center">
-								<img class="services__card--gavel mb-3" src="assets/svg/gavel.svg" alt="">
+								<img class="services__card-svg services__card--gavel mb-3" src="assets/svg/gavel.svg" alt="">
 								<figcaption class="heading-secondary--gold">Previdência Privada</figcaption>
 							</figure>
 						</div>
 						<div class="services__card d-flex align-items-center justify-content-center">
 							<figure class="text-center">
-								<img class="services__card--briefcase mb-3" src="assets/svg/briefcase.svg" alt="">
+								<img class="services__card-svg services__card--briefcase mb-3" src="assets/svg/briefcase.svg" alt="">
 								<figcaption class="heading-secondary--gold">Causas Trabalhistas</figcaption>
 							</figure>
 						</div>
 						<div class="services__card d-flex align-items-center justify-content-center">
 							<figure class="text-center">
-								<img class="services__card--award mb-3" src="assets/img/award.png" alt="">
+								<img class="services__card-svg services__card--award mb-3" src="assets/img/award.png" alt="">
 								<figcaption class="heading-secondary--gold">Direito Civil e Militar</figcaption>
 							</figure>
 						</div>
 						<div class="services__card d-flex align-items-center justify-content-center">
 							<figure class="text-center">
-								<img class="services__card--balance mb-3" src="assets/svg/scale.svg" alt="">
+								<img class="services__card-svg services__card--balance mb-3" src="assets/svg/scale.svg" alt="">
 								<figcaption class="heading-secondary--gold">Direito do Consumidor</figcaption>
 							</figure>
 						</div>
@@ -226,10 +204,10 @@
 				</div>
 			</article>
 		</section> <!--  SERVICES  -->
-		<section class="contact d-flex align-items-end" id="contact">
+		<section class="contact d-flex align-items-center" id="contact">
 			<article class="container">
 				<div class="row">
-					<div class="contact__text col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-6">
+					<div class="contact__text col-10 offset-1 col-md-6 offset-md-6">
 						<div class="mb-2">
 							<p class="paragraph mb-0">Marque Uma Consulta Conosco</p>
 							<h2 class="heading-secondary--gold ">Consultoria Gratuita</h2>
@@ -368,11 +346,11 @@
 						<img class="footer__logo-img" src="assets/img/logo.jpg"
 							alt="logo Heber Ximenes - Advocacia e Consultoria Juridica">
 						<div class="footer__logo-text ml-4">
-							<h4>Dr. Heber Ximenes</h4>
-							<h5>Advocacia e Consultoria Jurídica</h5>
+							<h5>Dr. Heber Ximenes</h5>
+							<h6>Advocacia e Consultoria Jurídica</h6>
 						</div>
 					</figure>
-					<div class="col-sm-4 col-md-3 footer__form my-auto">
+					<div class="col-sm-4 col-xm-8 footer__form my-auto">
 						<form class="form-group border-color-gray d-flex">
 							<input type="email" class="form-control form-control-custom d-inline rounded-0 border-0"
 								id="inputEmail" placeholder="Deixe seu E-mail" required>

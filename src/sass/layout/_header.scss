@@ -13,6 +13,16 @@ Starts on: 04/15/19
 .header {
   &__logo {
     width: 5rem;
+    @include respond(phone) {
+      width: 3rem;
+    }
+    &-text {
+      font-size: 60%;
+
+      @include respond(phone) {
+        font-size: 52%;
+      }
+    }
   }
 
 
@@ -21,10 +31,10 @@ Starts on: 04/15/19
   ///////////////
 
   .section-hero {
-    padding: 1px 7.75rem;
+    padding: 1px 10%;
     background-color: $color-primary;
     // display: none;
-    height: 75vh;
+    height: 100vh;
     width: 100%;
     background-size: cover;
     // background: url("/dist/assets/img/hero.png") $color-primary;
@@ -33,17 +43,26 @@ Starts on: 04/15/19
     //                                 rgba(74, 103, 143, 0.4)),
     //                                 url(../img/hero.png);
     background-image: url(../img/hero.jpg);
-    background-position: right bottom;
+    background-position: right center;
     // background-position:  right -326px top -100px;
     background-repeat: no-repeat;
 
     // object-fit: contain;
     // background-size: 100%;
+    @include respond(tab-port) {
+      padding: 1px;
+    }
+    @include respond(tab-land) {
+      padding: 1px 5%;
+    }
     @include respond(phone) {
+      padding: 1px 1px;
       background-image: url(../img/hero-phone.jpg);
       background-size: cover;
-      background-position: right top;
-      height: 90vh;
+      background-position: top center;
+      // object-fit: contain;
+      // background-size: 100%;
+      // height: 90vh;
     }
   }
 }

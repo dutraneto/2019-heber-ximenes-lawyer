@@ -16,6 +16,7 @@ const sourcemaps = require('gulp-sourcemaps')
 const plumber = require('gulp-plumber')
 const postcss = require('gulp-postcss')
 const cssnano = require('cssnano')
+const cache = require('gulp-cache')
 
 // compile SASS Explicit
 sass.compiler = require('node-sass')
@@ -37,12 +38,18 @@ const serve = (source = path.source ? path.source : path.dist, port = path.port)
 		server: {
 			baseDir: source
 		},
-		port: port,
+		port: port
 	})
 	watch(path.sass).on('change', series('build:css', browserSync.reload))
 	watch('./src/*.html').on('change', series('build:html', browserSync.reload))
 }
 task('serve', () => serve(path.source, 5000))
+
+// clear the cache browser
+const clearCache = () => {
+	cache.clearAll()
+}
+task('clear:cache', clearCache)
 
 // Minimize JS
 const buildJS = () => {
@@ -91,7 +98,6 @@ const css = () => {
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(sourcemaps.write('./maps'))
 		.pipe(dest('src/assets/css/'))
-		.pipe(browserSync.stream())
 }
 task('build:css', css)
 
@@ -128,7 +134,6 @@ task('build:html', () => {
 			})
 		)
 		.pipe(dest(`${path.dist}`))
-		.pipe(browserSync.stream())
 })
 
 // Build

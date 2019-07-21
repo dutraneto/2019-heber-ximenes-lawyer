@@ -4,20 +4,31 @@
   &__first {
     padding: .225rem 3.75rem;
     background-color: $color-primary;
+
+    @include respond(tab-port) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
   }
 
   &__logo {
-    width: 40%;
+    // width: 40%;
     padding: 0;
     margin: 10px 5px;
 
     &-text {
       color: $color-text-gray;
       @include sahitya-regular;
-      font-size: 52%;
+
+      @include respond(tab-port) {
+      }
     }
     &-img {
       width: 5rem;
+
+      @include respond(phone) {
+        width: 3rem;
+      }
     }
   }
 
