@@ -1,1 +1,1 @@
-function initMap(){var n={lat:-3.756,lng:-38.51024},o=new google.maps.Map(document.getElementById("map"),{zoom:4,center:n});new google.maps.Marker({position:n,map:o})}$(function(){$("a").on("click",function(n){if(""!==this.hash){n.preventDefault();var o=this.hash;$("html, body").animate({scrollTop:$(o).offset().top},600,function(){window.location.hash=o})}})}),(new WOW).init();
+$(function(){$("a").on("click",function(o){if(""!==this.hash){o.preventDefault();var t=this.hash;$("html, body").animate({scrollTop:$(t).offset().top},600,function(){window.location.hash=t})}})});

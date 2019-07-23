@@ -1,7 +1,3 @@
-/**
- * TODO: change plugin image-min to gulp-webp
- * for optimizing images
- */
 const { src, dest, series, watch, task, parallel } = require('gulp')
 const del = require('del')
 const sass = require('gulp-sass')
@@ -25,12 +21,15 @@ sass.compiler = require('node-sass')
 const path = {
 	root: '/',
 	source: 'src/',
-	dist: 'dist/',
-	allFiles: 'src/**/*.*',
+	all: 'src/**/*.*',
+	html: 'src/*.html',
 	sass: 'src/sass/**/*.scss',
+	dist: 'dist/',
 	port: 4000
 }
 
+/** FUNCTIONS --------*/
+// serve files
 const serve = (source = path.source ? path.source : path.dist, port = path.port) => {
 	browserSync.init({
 		browser: 'Google Chrome',
@@ -40,19 +39,24 @@ const serve = (source = path.source ? path.source : path.dist, port = path.port)
 		},
 		port: port
 	})
-	watch(path.sass).on('change', series('build:css', browserSync.reload))
-	watch('./src/*.html').on('change', series('build:html', browserSync.reload))
+	watch(path.sass).on('change', series(buildCss, reloadBrowser))
+	watch(path.html).on('change', series(buildHtml, reloadBrowser))
 }
-task('serve', () => serve(path.source, 5000))
+
+// function that reloads browsers
+const reloadBrowser = () => {
+	console.log('Clearing cache and reloading browsers')
+	clearCache()
+	browserSync.reload()
+}
 
 // clear the cache browser
 const clearCache = () => {
 	cache.clearAll()
 }
-task('clear:cache', clearCache)
 
 // Minimize JS
-const buildJS = () => {
+const buildJs = () => {
 	return pipeline(
 		src(`${path.source}assets/js/*`),
 		uglify({
@@ -62,25 +66,9 @@ const buildJS = () => {
 		dest(`${path.dist}assets/js/`)
 	)
 }
-task('build:js', buildJS)
-
-// Copy files to dist
-const buildCopy = () => {
-	let sourceFiles = [
-		path.allFiles,
-		`!${path.sass}`,
-		'!src/assets/img/*',
-		'!src/assets/js/*',
-		'!src/assets/css/maps/main.min.css.map',
-		'!src/assets/css/main.css',
-		'!src/*.html'
-	]
-	return src(sourceFiles).pipe(dest(`${path.dist}`))
-}
-task('build:copy', buildCopy)
 
 // Minify CSS and ADD vendor prefix
-const css = () => {
+const buildCss = () => {
 	let postcssPlugins = [
 		autoprefixer({
 			grid: true
@@ -88,61 +76,68 @@ const css = () => {
 		}),
 		cssnano()
 	]
-	return src(`${path.sass}`)
-		.pipe(sourcemaps.init())
-		.pipe(plumber())
-		.pipe(sass({ outputStyle: 'expanded' }))
-		.on('error', sass.logError)
-		.pipe(dest('src/assets/css/'))
-		.pipe(postcss(postcssPlugins))
-		.pipe(rename({ suffix: '.min' }))
-		.pipe(sourcemaps.write('./maps'))
-		.pipe(dest('src/assets/css/'))
+	return pipeline(
+		src(path.sass),
+		sourcemaps.init(),
+		plumber(),
+		sass({ outputStyle: 'expanded' }).on('error', sass.logError),
+		dest(`${path.source}assets/css/`),
+		postcss(postcssPlugins),
+		rename({ suffix: '.min' }),
+		sourcemaps.write('./maps'),
+		dest(`${path.source}assets/css/`)
+	)
 }
-task('build:css', css)
 
-// watch sass
-const watchFiles = () => {}
-task('watch:files', () => watchFiles())
+// Minify HTML
+const buildHtml = () => {
+	return pipeline(
+		src(path.html),
+		htmlmin({
+			removeComments: true,
+			collapseWhitespace: true
+		}),
+		dest(path.dist)
+	)
+}
+
+// Copy files to dist
+const buildCopy = () => {
+	let sourceFiles = [
+		path.all,
+		`!${path.sass}`,
+		`!${path.source}assets/img/*`,
+		`!${path.source}assets/js/*`,
+		`!${path.source}assets/css/maps/main.min.css.map`,
+		`!${path.source}assets/css/main.css`,
+		`!${path.html}`
+	]
+	return src(sourceFiles).pipe(dest(path.dist))
+}
 
 // Optimize images
-const buildIMG = () => {
-	return src('src/assets/img/*')
-		.pipe(imagemin())
-		.pipe(dest('dist/assets/img'))
+const buildImg = () => {
+	return pipeline(src('src/assets/img/*'), imagemin(), dest('dist/assets/img'))
 }
-task('build:img', buildIMG)
 
 // Clean dist and tmp
 const buildClean = () => {
 	return del([`${path.dist}`, 'tmp/**/*'])
 }
-task('build:clean', buildClean)
 
-const delCSS = () => {
+// del only css files
+const delCss = () => {
 	return del(['src/assets/css/*.min.css'])
 }
-task('del:css', delCSS)
 
-// Minify HTML
-task('build:html', () => {
-	return src('src/*.html')
-		.pipe(
-			htmlmin({
-				removeComments: true,
-				collapseWhitespace: true
-			})
-		)
-		.pipe(dest(`${path.dist}`))
-})
-
-// Build
-const buildAll = series(
-	'build:clean',
-	'build:css',
-	'build:copy',
-	'build:js',
-	'build:html',
-	'build:img'
-)
-task('build:all', buildAll)
+/** TASKS --------*/
+exports.serve = () => serve(path.source, 5000)
+exports.clearCache = clearCache
+exports.buildHtml= buildHtml
+exports.buildJs = buildJs
+exports.buildCss = buildCss
+exports.buildImg = buildImg
+exports.buildCopy = buildCopy
+exports.buildClean = buildClean
+exports.delCss = delCss
+exports.buildAll = series(buildClean, buildCss, buildJs, buildHtml, buildCopy, buildImg)

@@ -42,7 +42,7 @@
   ],
   "scripts": {
     "start": "gulp serve",
-    "build": "gulp build:all"
+    "build": "gulp buildAll"
   },
   "author": "DutraNeto",
   "license": "ISC"
