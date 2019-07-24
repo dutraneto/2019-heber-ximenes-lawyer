@@ -187,7 +187,7 @@ Starts on: 04/15/19
 .contact {
     // padding-bottom: 9rem;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background-image: url("../img/contact-desktop.jpg");
     background-repeat: no-repeat;
     background-position: bottom center;
@@ -199,6 +199,9 @@ Starts on: 04/15/19
 
     // &__text {
     // }
+    @include respond(tab-port) {
+        background-attachment: scroll;
+    }
 
     @include respond(phone) {
         background-image: url("../img/contact-mobile.jpg");

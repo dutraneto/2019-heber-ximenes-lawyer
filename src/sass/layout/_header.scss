@@ -43,22 +43,22 @@ Starts on: 04/15/19
     //                                 rgba(74, 103, 143, 0.4)),
     //                                 url(../img/hero.png);
     background-image: url(../img/hero.jpg);
-    background-position: right center;
-    // background-position:  right -326px top -100px;
     background-repeat: no-repeat;
-
+    background-position: bottom right;
     // object-fit: contain;
     // background-size: 100%;
     @include respond(tab-port) {
       padding: 1px;
     }
-    @include respond(tab-land) {
+    @include respond(tab-port) {
       padding: 1px 5%;
+      background-image: url(../img/hero-tablet.jpg);
+      background-position: top right;
     }
     @include respond(phone) {
       padding: 1px 1px;
       background-image: url(../img/hero-phone.jpg);
-      background-size: cover;
+      background-size: fill;
       background-position: top center;
       // object-fit: contain;
       // background-size: 100%;

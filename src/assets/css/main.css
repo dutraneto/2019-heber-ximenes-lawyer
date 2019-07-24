@@ -601,8 +601,8 @@ Starts on: 04/15/19
   width: 100%;
   background-size: cover;
   background-image: url(../img/hero.jpg);
-  background-position: right center;
   background-repeat: no-repeat;
+  background-position: bottom right;
 }
 
 @media only screen and (max-width: 56.25em) {
@@ -611,9 +611,11 @@ Starts on: 04/15/19
   }
 }
 
-@media only screen and (max-width: 75em) {
+@media only screen and (max-width: 56.25em) {
   .header .section-hero {
     padding: 1px 5%;
+    background-image: url(../img/hero-tablet.jpg);
+    background-position: top right;
   }
 }
 
@@ -621,7 +623,7 @@ Starts on: 04/15/19
   .header .section-hero {
     padding: 1px 1px;
     background-image: url(../img/hero-phone.jpg);
-    background-size: cover;
+    background-size: fill;
     background-position: top center;
   }
 }
@@ -1007,7 +1009,7 @@ Starts on: 04/15/19
 
 .contact {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-image: url("../img/contact-desktop.jpg");
   background-repeat: no-repeat;
   background-position: bottom center;
@@ -1015,6 +1017,12 @@ Starts on: 04/15/19
   background-size: cover;
   -webkit-filter: contrast(1);
   filter: contrast(1);
+}
+
+@media only screen and (max-width: 56.25em) {
+  .contact {
+    background-attachment: scroll;
+  }
 }
 
 @media only screen and (max-width: 37.5em) {
