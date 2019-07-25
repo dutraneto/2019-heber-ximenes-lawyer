@@ -1,9 +1,18 @@
-const { src, dest, series, watch, task, parallel } = require('gulp')
+const {
+	src,
+	dest,
+	series,
+	watch,
+	task,
+	parallel
+} = require('gulp')
 const del = require('del')
 const sass = require('gulp-sass')
 const browserSync = require('browser-sync').create()
 const uglify = require('gulp-uglify')
-const { pipeline } = require('readable-stream')
+const {
+	pipeline
+} = require('readable-stream')
 const imagemin = require('gulp-imagemin')
 const autoprefixer = require('autoprefixer')
 const htmlmin = require('gulp-htmlmin')
@@ -25,7 +34,7 @@ const path = {
 	html: 'src/*.html',
 	sass: 'src/sass/**/*.scss',
 	dist: 'dist/',
-	port: 4000
+	port: 4000,
 }
 
 /** FUNCTIONS --------*/
@@ -80,10 +89,14 @@ const buildCss = () => {
 		src(path.sass),
 		sourcemaps.init(),
 		plumber(),
-		sass({ outputStyle: 'expanded' }).on('error', sass.logError),
+		sass({
+			outputStyle: 'expanded'
+		}).on('error', sass.logError),
 		dest(`${path.source}assets/css/`),
 		postcss(postcssPlugins),
-		rename({ suffix: '.min' }),
+		rename({
+			suffix: '.min'
+		}),
 		sourcemaps.write('./maps'),
 		dest(`${path.source}assets/css/`)
 	)
@@ -117,7 +130,15 @@ const buildCopy = () => {
 
 // Optimize images
 const buildImg = () => {
-	return pipeline(src('src/assets/img/*'), imagemin(), dest('dist/assets/img'))
+	return pipeline(
+		src('src/assets/img/*'),
+		imagemin({
+			optimizationLevel: 3,
+			progressive: true,
+			interlaced: true
+		}),
+		dest('dist/assets/img')
+	)
 }
 
 // Clean dist and tmp
@@ -133,7 +154,7 @@ const delCss = () => {
 /** TASKS --------*/
 exports.serve = () => serve(path.source, 5000)
 exports.clearCache = clearCache
-exports.buildHtml= buildHtml
+exports.buildHtml = buildHtml
 exports.buildJs = buildJs
 exports.buildCss = buildCss
 exports.buildImg = buildImg
