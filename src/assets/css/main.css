@@ -710,6 +710,13 @@ button.navbar-toggler.custom-toggler {
   background-color: #4a678f;
 }
 
+@media only screen and (max-width: 56.25em) {
+  .footer__info {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 .footer__info-arrowup {
   z-index: 100;
   right: 1rem;
@@ -1047,18 +1054,24 @@ Starts on: 04/15/19
 }
 
 .agency {
-  padding: 5rem 3.75rem;
+  padding: 5rem 3.75rem 5rem 3.75rem;
   background-color: #FAFAFA;
 }
 
 .agency__work {
   min-width: 23.75em;
-  height: 300px;
+  min-height: 300px;
 }
 
 @media only screen and (max-width: 1124375em) {
   .agency__work {
     min-width: 18.75em;
+  }
+}
+
+@media only screen and (max-width: 75em) {
+  .agency__work {
+    margin-bottom: 1em;
   }
 }
 
@@ -1070,7 +1083,7 @@ Starts on: 04/15/19
 }
 
 .agency__figure {
-  margin: 2em 2em 2em 0;
+  margin: 2em 1em 2em 0;
 }
 
 .map {
