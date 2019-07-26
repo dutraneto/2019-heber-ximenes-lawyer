@@ -21,6 +21,27 @@
     </script>
 		-->
 	<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxNNEZ8IT_39GnNeK6o-i97X1OuSkoKCU&callback=initMap"></script> -->
+	<script>
+		// This is the "Offline page" service worker
+		// Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+		// Check compatibility for the browser we're running this in
+		if ("serviceWorker" in navigator) {
+			if (navigator.serviceWorker.controller) {
+				console.log("[PWA Builder] active service worker found, no need to register");
+			} else {
+				// Register the service worker
+				navigator.serviceWorker
+					.register("sw.js", {
+						scope: "./"
+					})
+					.then(function (reg) {
+						console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+					});
+			}
+		}
+
+	</script>
+	<script src="sw.js"></script>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="robots" content="index, follow">
@@ -32,9 +53,6 @@
 	<title>Dr. Heber Ximenes</title>
 	<meta name="description" content="___________ PROJECT DESCRIPTION ___________" />
 	<meta name="keywords" content="___________ PROJECT KEYWORDS ___________" />
-
-	<!-- MANIFEST -->
-	<link rel="manifest" href="/manifest.json">
 
 	<!-- Recommended favicon format -->
 	<link rel="icon" type="image/png" href="favicon.png">
@@ -55,6 +73,9 @@
 
 	<!-- Microsoft Tiles -->
 	<meta name="msapplication-config" content="browserconfig.xml" />
+
+	<!-- MANIFEST -->
+	<link rel="manifest" href="/manifest.json">
 
 	<!-- SOCIAL -->
 	<meta property="og:type" content="website">

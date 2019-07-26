@@ -507,6 +507,13 @@ Important: we use ems because rems are fails
 TODO: ORDER:   BASE + TYPOGRAPHY > GENERAL LAYOUT + GRID > PAGE LAYOUT > COMPONENTS
 
 */
+/*
+* system fonts
+*/
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
 @font-face {
   src: url("/src/assets/fonts/Roboto/Roboto-Thin.ttf"), url("/src/assets/fonts/Roboto/Roboto-Regular.ttf"), url("/src/assets/fonts/Sahitya/Sahitya-Bold.ttf"), url("/src/assets/fonts/Sahitya/Sahitya-Regular.ttf");
 }

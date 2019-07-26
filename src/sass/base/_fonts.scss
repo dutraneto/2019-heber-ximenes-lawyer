@@ -1,7 +1,15 @@
 // -----------------------------------------------------------------------------
 // This file contains all @font-face declarations, if any.
 // -----------------------------------------------------------------------------
-// @import url('https://fonts.googleapis.com/css?family=Roboto:300,400|Sahitya');
+
+/*
+* system fonts
+*/
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
 @font-face {
   src: url('/src/assets/fonts/Roboto/Roboto-Thin.ttf'),
         url('/src/assets/fonts/Roboto/Roboto-Regular.ttf'),
