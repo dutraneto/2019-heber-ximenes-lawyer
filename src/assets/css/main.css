@@ -926,7 +926,14 @@ Starts on: 04/15/19
 
 @media only screen and (max-width: 56.25em) {
   .info__text {
-    width: 80%;
+    width: 90%;
+    margin-left: auto;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .info__text {
+    margin-right: auto;
   }
 }
 
@@ -943,7 +950,7 @@ Starts on: 04/15/19
 
 @media only screen and (max-width: 56.25em) {
   .info__frame {
-    margin-left: 0;
+    margin: 0;
   }
 }
 
@@ -1038,13 +1045,14 @@ Starts on: 04/15/19
 @media only screen and (max-width: 56.25em) {
   .contact {
     background-attachment: scroll;
+    height: 120vh;
   }
 }
 
 @media only screen and (max-width: 37.5em) {
   .contact {
     background-image: url("../img/contact-mobile.jpg");
-    background-size: fill;
+    background-size: cover;
     background-position: center center;
   }
 }
