@@ -69,13 +69,12 @@ Starts on: 04/15/19
         background-repeat: no-repeat;
 
         @include respond(tab-port) {
-            width: 80%;
+            width: 90%;
+            margin-left: auto;
         }
 
         @include respond(phone) {
-            // width: 220px;
-            // margin-left: 10px;
-            // margin-top: 60px;
+            margin-right: auto;
         }
     }
 
@@ -90,7 +89,7 @@ Starts on: 04/15/19
         padding: 13px;
 
         @include respond(tab-port) {
-            margin-left: 0;
+            margin: 0;
         }
     }
 
@@ -197,15 +196,14 @@ Starts on: 04/15/19
     -webkit-filter: contrast(1);
     filter: contrast(1);
 
-    // &__text {
-    // }
     @include respond(tab-port) {
         background-attachment: scroll;
+        height: 120vh;
     }
 
     @include respond(phone) {
         background-image: url("../img/contact-mobile.jpg");
-        background-size: fill;
+        background-size: cover;
         background-position: center center;
     }
 }
@@ -224,14 +222,17 @@ Starts on: 04/15/19
 ///////////////////
 
 .agency {
-    padding: 5rem 3.75rem;
+    padding: 5rem 3.75rem 5rem 3.75rem;
     background-color:$color-background-secondary;
     &__work {
         min-width: 23.75em;
-        height: 300px;
+        // min-height: 300px;
 
         @include respond(desktop) {
             min-width: 18.75em;
+        }
+        @include respond(tab-land) {
+            margin-bottom: 1em;
         }
     }
 
@@ -241,7 +242,7 @@ Starts on: 04/15/19
     }
 
     &__figure {
-        margin: 2em 2em 2em 0;
+        margin: 2em 1em 2em 0;
     }
 }
 // -------------------Agency--------------------- //

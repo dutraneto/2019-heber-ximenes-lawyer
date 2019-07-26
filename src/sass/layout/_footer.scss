@@ -16,11 +16,24 @@
     padding: 0;
     margin: 10px 5px;
 
+    @include respond(tab-port) {
+      flex-direction: column;
+
+    }
+
     &-text {
+      margin-left: 1.5rem;
       color: $color-text-gray;
       @include sahitya-regular;
 
       @include respond(tab-port) {
+        margin-left: 0;
+        h5 {
+          display: none;
+        }
+        h6 {
+          margin-bottom: 0;
+        }
       }
     }
     &-img {
@@ -36,6 +49,11 @@
     padding-left: 3.75rem;
     padding-right: 3.75rem;
     background-color: $color-secondary;
+
+    @include respond(tab-port) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
 
     &-arrowup {
       z-index: 100;
@@ -70,5 +88,4 @@
 
 .form-control.form-control-custom {
   padding: 0 5px;
-  font-size: 10px;
 }
