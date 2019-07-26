@@ -529,6 +529,8 @@ body {
   font-family: "Sahitya", serif;
   font-weight: 400;
   color: #ffbf00;
+  font-size: 3em;
+  margin: 0;
 }
 
 .paragraph {
@@ -593,6 +595,7 @@ Starts on: 04/15/19
 
 .header__logo-text {
   font-size: 60%;
+  color: #CBD2D7;
 }
 
 @media only screen and (max-width: 37.5em) {
@@ -685,10 +688,29 @@ button.navbar-toggler.custom-toggler {
   margin: 10px 5px;
 }
 
+@media only screen and (max-width: 56.25em) {
+  .footer__logo {
+    flex-direction: column;
+  }
+}
+
 .footer__logo-text {
+  margin-left: 1.5rem;
   color: #CBD2D7;
   font-family: "Sahitya", serif;
   font-weight: 400;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .footer__logo-text {
+    margin-left: 0;
+  }
+  .footer__logo-text h5 {
+    display: none;
+  }
+  .footer__logo-text h6 {
+    margin-bottom: 0;
+  }
 }
 
 .footer__logo-img {
@@ -705,6 +727,13 @@ button.navbar-toggler.custom-toggler {
   padding-left: 3.75rem;
   padding-right: 3.75rem;
   background-color: #4a678f;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .footer__info {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 .footer__info-arrowup {
@@ -736,7 +765,6 @@ button.navbar-toggler.custom-toggler {
 
 .form-control.form-control-custom {
   padding: 0 5px;
-  font-size: 10px;
 }
 
 .btn-custom {
@@ -917,7 +945,14 @@ Starts on: 04/15/19
 
 @media only screen and (max-width: 56.25em) {
   .info__text {
-    width: 80%;
+    width: 90%;
+    margin-left: auto;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .info__text {
+    margin-right: auto;
   }
 }
 
@@ -934,7 +969,7 @@ Starts on: 04/15/19
 
 @media only screen and (max-width: 56.25em) {
   .info__frame {
-    margin-left: 0;
+    margin: 0;
   }
 }
 
@@ -1029,13 +1064,14 @@ Starts on: 04/15/19
 @media only screen and (max-width: 56.25em) {
   .contact {
     background-attachment: scroll;
+    height: 120vh;
   }
 }
 
 @media only screen and (max-width: 37.5em) {
   .contact {
     background-image: url("../img/contact-mobile.jpg");
-    background-size: fill;
+    background-size: cover;
     background-position: center center;
   }
 }
@@ -1045,18 +1081,23 @@ Starts on: 04/15/19
 }
 
 .agency {
-  padding: 5rem 3.75rem;
+  padding: 5rem 3.75rem 5rem 3.75rem;
   background-color: #FAFAFA;
 }
 
 .agency__work {
   min-width: 23.75em;
-  height: 300px;
 }
 
 @media only screen and (max-width: 1124375em) {
   .agency__work {
     min-width: 18.75em;
+  }
+}
+
+@media only screen and (max-width: 75em) {
+  .agency__work {
+    margin-bottom: 1em;
   }
 }
 
@@ -1068,7 +1109,7 @@ Starts on: 04/15/19
 }
 
 .agency__figure {
-  margin: 2em 2em 2em 0;
+  margin: 2em 1em 2em 0;
 }
 
 .map {
