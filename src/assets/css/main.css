@@ -595,6 +595,7 @@ Starts on: 04/15/19
 
 .header__logo-text {
   font-size: 60%;
+  color: #CBD2D7;
 }
 
 @media only screen and (max-width: 37.5em) {
