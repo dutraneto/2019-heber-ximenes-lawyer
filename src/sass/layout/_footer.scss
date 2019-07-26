@@ -16,11 +16,24 @@
     padding: 0;
     margin: 10px 5px;
 
+    @include respond(tab-port) {
+      flex-direction: column;
+
+    }
+
     &-text {
+      margin-left: 1.5rem;
       color: $color-text-gray;
       @include sahitya-regular;
 
       @include respond(tab-port) {
+        margin-left: 0;
+        h5 {
+          display: none;
+        }
+        h6 {
+          margin-bottom: 0;
+        }
       }
     }
     &-img {

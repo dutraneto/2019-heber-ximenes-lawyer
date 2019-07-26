@@ -688,10 +688,29 @@ button.navbar-toggler.custom-toggler {
   margin: 10px 5px;
 }
 
+@media only screen and (max-width: 56.25em) {
+  .footer__logo {
+    flex-direction: column;
+  }
+}
+
 .footer__logo-text {
+  margin-left: 1.5rem;
   color: #CBD2D7;
   font-family: "Sahitya", serif;
   font-weight: 400;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .footer__logo-text {
+    margin-left: 0;
+  }
+  .footer__logo-text h5 {
+    display: none;
+  }
+  .footer__logo-text h6 {
+    margin-bottom: 0;
+  }
 }
 
 .footer__logo-img {
