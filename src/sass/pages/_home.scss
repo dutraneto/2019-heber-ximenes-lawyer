@@ -226,7 +226,7 @@ Starts on: 04/15/19
     background-color:$color-background-secondary;
     &__work {
         min-width: 23.75em;
-        min-height: 300px;
+        // min-height: 300px;
 
         @include respond(desktop) {
             min-width: 18.75em;
