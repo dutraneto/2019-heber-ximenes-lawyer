@@ -8,7 +8,8 @@ body {
 .heading-first {
   @include sahitya-regular;
   color: $color-stroke;
-  // font-size: 1.6em;
+  font-size: 3em;
+  margin: 0;
 }
 
 .paragraph {

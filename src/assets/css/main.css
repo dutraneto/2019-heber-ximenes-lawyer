@@ -529,6 +529,8 @@ body {
   font-family: "Sahitya", serif;
   font-weight: 400;
   color: #ffbf00;
+  font-size: 3em;
+  margin: 0;
 }
 
 .paragraph {
@@ -736,7 +738,6 @@ button.navbar-toggler.custom-toggler {
 
 .form-control.form-control-custom {
   padding: 0 5px;
-  font-size: 10px;
 }
 
 .btn-custom {
