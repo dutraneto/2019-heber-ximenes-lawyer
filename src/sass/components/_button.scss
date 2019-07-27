@@ -34,6 +34,10 @@
   padding: .575rem 5rem;
   font-size: 16px;
   font-weight: 100;
+
+  @include respond(phone) {
+    width: 100%;
+  }
 }
 
 // button send email plane
