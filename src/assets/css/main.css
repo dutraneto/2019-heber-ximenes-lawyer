@@ -760,6 +760,10 @@ button.navbar-toggler.custom-toggler {
   transform: translateY(-60%);
 }
 
+.footer__info-oab {
+  margin-top: 0;
+}
+
 .footer__info-oab__figcap {
   color: #CBD2D7;
   font-size: 100%;
