@@ -239,6 +239,10 @@ Starts on: 04/15/19
             min-width: 18.75em;
         }
 
+        @include respond(phone) {
+            min-width: 15.75em;
+        }
+
         @include respond(tab-land) {
             margin-bottom: 1em;
         }
@@ -249,8 +253,16 @@ Starts on: 04/15/19
         padding-right: 3rem;
     }
 
+    @include respond(phone) {
+        padding: 3rem 1.5rem;
+    }
+
     &__figure {
         margin: 2em 1em 2em 0;
+
+        @include respond(phone) {
+            margin-right: 0;
+        }
     }
 }
 

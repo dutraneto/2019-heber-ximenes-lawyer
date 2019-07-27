@@ -1122,6 +1122,12 @@ Starts on: 04/15/19
   }
 }
 
+@media only screen and (max-width: 37.5em) {
+  .agency__work {
+    min-width: 15.75em;
+  }
+}
+
 @media only screen and (max-width: 75em) {
   .agency__work {
     margin-bottom: 1em;
@@ -1135,8 +1141,20 @@ Starts on: 04/15/19
   }
 }
 
+@media only screen and (max-width: 37.5em) {
+  .agency {
+    padding: 3rem 1.5rem;
+  }
+}
+
 .agency__figure {
   margin: 2em 1em 2em 0;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .agency__figure {
+    margin-right: 0;
+  }
 }
 
 .map {
