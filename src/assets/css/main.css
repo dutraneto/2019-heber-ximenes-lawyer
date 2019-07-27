@@ -720,6 +720,12 @@ button.navbar-toggler.custom-toggler {
   }
 }
 
+@media only screen and (max-width: 56.25em) and (max-width: 37.5em) {
+  .footer__logo-text h6 {
+    font-size: 50%;
+  }
+}
+
 .footer__logo-img {
   width: 5rem;
 }
@@ -772,6 +778,12 @@ button.navbar-toggler.custom-toggler {
 
 .form-control.form-control-custom {
   padding: 0 5px;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .form-control.form-control-custom {
+    font-size: 10px;
+  }
 }
 
 .btn-custom {
