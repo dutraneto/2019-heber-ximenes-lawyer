@@ -28,7 +28,7 @@ Starts on: 04/15/19
     @include respond(phone) {
         padding-right: 0;
         display: block;
-        margin-bottom: 10rem;
+        margin-bottom: 3rem;
     }
 
     &__disp {
@@ -41,9 +41,7 @@ Starts on: 04/15/19
             flex-direction: column;
             align-items: center;
             justify-content: center;
-
         }
-
     }
 
     &__bg-color {
@@ -61,7 +59,7 @@ Starts on: 04/15/19
     }
 
     &__text {
-        // width: 60%;
+        justify-content: center;
         flex-basis: 70%;
         background-image: url("../img/law-scale.jpg");
         background-position: center;
@@ -71,9 +69,11 @@ Starts on: 04/15/19
         @include respond(tab-port) {
             width: 90%;
             margin-left: auto;
+            justify-content: start;
         }
 
         @include respond(phone) {
+            width: 80%;
             margin-right: auto;
         }
     }
