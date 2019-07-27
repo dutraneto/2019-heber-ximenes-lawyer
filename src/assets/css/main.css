@@ -533,6 +533,12 @@ body {
   margin: 0;
 }
 
+@media only screen and (max-width: 37.5em) {
+  .heading-first {
+    font-size: 1.9em;
+  }
+}
+
 .paragraph {
   color: #FFFFFF;
 }
@@ -615,14 +621,15 @@ Starts on: 04/15/19
   background-position: bottom right;
 }
 
-@media only screen and (max-width: 56.25em) {
-  .header .section-hero {
-    padding: 1px;
+@media only screen and (max-width: 37.5em) {
+  .header .section-hero__greet {
+    padding-left: .7rem;
   }
 }
 
 @media only screen and (max-width: 56.25em) {
   .header .section-hero {
+    height: 125vh;
     padding: 1px 5%;
     background-image: url(../img/hero-tablet.jpg);
     background-position: top right;
@@ -633,8 +640,8 @@ Starts on: 04/15/19
   .header .section-hero {
     padding: 1px 1px;
     background-image: url(../img/hero-phone.jpg);
-    background-size: fill;
-    background-position: top center;
+    background-size: cover;
+    background-position: center;
   }
 }
 

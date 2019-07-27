@@ -10,6 +10,10 @@ body {
   color: $color-stroke;
   font-size: 3em;
   margin: 0;
+
+  @include respond(phone) {
+    font-size: 1.9em;
+  }
 }
 
 .paragraph {
