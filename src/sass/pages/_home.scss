@@ -73,7 +73,7 @@ Starts on: 04/15/19
         }
 
         @include respond(phone) {
-            width: 80%;
+            width: 85%;
             margin-right: auto;
         }
     }
@@ -119,12 +119,20 @@ Starts on: 04/15/19
         padding: 3rem;
     }
 
+    @include respond(phone) {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
     &__info {
         background: url("../img/lady-justice.png") no-repeat center center;
         background-size: cover;
 
         @include respond(tab-port) {
             background-size: contain;
+        }
+        @include respond(phone) {
+            background-size: cover;
         }
     }
 
@@ -140,9 +148,6 @@ Starts on: 04/15/19
         min-width: 18.75rem;
         margin-left: 1.5rem;
         margin-bottom: 1.5rem;
-        &:not(:first-child) {
-            // margin-top: 35px;
-        }
 
         @include respond(desktop) {
             height: 14.75rem;
@@ -150,12 +155,9 @@ Starts on: 04/15/19
             margin-left: 1rem;
             margin-bottom: 1rem;
         }
-        @include respond(tab-port) {
-
-
-        }
 
         @include respond(phone) {
+            margin-left: 0;
             height: 18.75rem;
             min-width: 18.75rem;
         }

@@ -961,7 +961,7 @@ Starts on: 04/15/19
 
 @media only screen and (max-width: 37.5em) {
   .info__text {
-    width: 80%;
+    width: 85%;
     margin-right: auto;
   }
 }
@@ -1002,6 +1002,13 @@ Starts on: 04/15/19
   }
 }
 
+@media only screen and (max-width: 37.5em) {
+  .services {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
 .services__info {
   background: url("../img/lady-justice.png") no-repeat center center;
   background-size: cover;
@@ -1010,6 +1017,12 @@ Starts on: 04/15/19
 @media only screen and (max-width: 56.25em) {
   .services__info {
     background-size: contain;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .services__info {
+    background-size: cover;
   }
 }
 
@@ -1038,6 +1051,7 @@ Starts on: 04/15/19
 
 @media only screen and (max-width: 37.5em) {
   .services__card {
+    margin-left: 0;
     height: 18.75rem;
     min-width: 18.75rem;
   }
