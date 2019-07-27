@@ -21,7 +21,7 @@ Starts on: 04/15/19
       color: $color-text-gray;
 
       @include respond(phone) {
-        font-size: 52%;
+        font-size: 50%;
       }
     }
   }
@@ -69,7 +69,7 @@ Starts on: 04/15/19
 }
 
 .navbar {
-  padding: .7rem 1rem;
+  padding: .7rem;
 }
 .navbar.border-stroke {
   border:none;
