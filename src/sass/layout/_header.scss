@@ -21,7 +21,7 @@ Starts on: 04/15/19
       color: $color-text-gray;
 
       @include respond(phone) {
-        font-size: 52%;
+        font-size: 50%;
       }
     }
   }
@@ -46,12 +46,15 @@ Starts on: 04/15/19
     background-image: url(../img/hero.jpg);
     background-repeat: no-repeat;
     background-position: bottom right;
-    // object-fit: contain;
-    // background-size: 100%;
-    @include respond(tab-port) {
-      padding: 1px;
+
+    &__greet {
+      @include respond(phone) {
+        padding-left: .7rem;
+      }
     }
+
     @include respond(tab-port) {
+      height: 125vh;
       padding: 1px 5%;
       background-image: url(../img/hero-tablet.jpg);
       background-position: top right;
@@ -59,17 +62,14 @@ Starts on: 04/15/19
     @include respond(phone) {
       padding: 1px 1px;
       background-image: url(../img/hero-phone.jpg);
-      background-size: fill;
-      background-position: top center;
-      // object-fit: contain;
-      // background-size: 100%;
-      // height: 90vh;
+      background-size: cover;
+      background-position: center;
     }
   }
 }
 
 .navbar {
-  padding: .7rem 1rem;
+  padding: .7rem;
 }
 .navbar.border-stroke {
   border:none;
