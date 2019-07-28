@@ -59,6 +59,7 @@ Starts on: 04/15/19
     }
 
     &__text {
+        height: 100%;
         justify-content: center;
         flex-basis: 70%;
         background-image: url("../img/law-scale.jpg");
@@ -67,6 +68,7 @@ Starts on: 04/15/19
         background-repeat: no-repeat;
 
         @include respond(tab-port) {
+            height: 66%;
             width: 90%;
             margin-left: auto;
             justify-content: start;

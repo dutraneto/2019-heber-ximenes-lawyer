@@ -965,6 +965,7 @@ Starts on: 04/15/19
 }
 
 .info__text {
+  height: 100%;
   justify-content: center;
   flex-basis: 70%;
   background-image: url("../img/law-scale.jpg");
@@ -975,6 +976,7 @@ Starts on: 04/15/19
 
 @media only screen and (max-width: 56.25em) {
   .info__text {
+    height: 66%;
     width: 90%;
     margin-left: auto;
     justify-content: start;
