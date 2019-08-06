@@ -1064,7 +1064,7 @@ Starts on: 04/15/19
   margin-bottom: 1.5rem;
 }
 
-@media only screen and (max-width: 1124375em) {
+@media only screen and (max-width: 112.5em) {
   .services__card {
     height: 14.75rem;
     min-width: 14.75rem;
@@ -1134,7 +1134,7 @@ Starts on: 04/15/19
   min-width: 23.75em;
 }
 
-@media only screen and (max-width: 1124375em) {
+@media only screen and (max-width: 112.5em) {
   .agency__work {
     min-width: 18.75em;
   }
