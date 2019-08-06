@@ -56,6 +56,12 @@ Starts on: 04/15/19
             height: auto;
             width: 25%;
         }
+        @include respond(big-desktop) {
+            height: auto;
+            width: 25%;
+        }
+
+
     }
 
     &__text {

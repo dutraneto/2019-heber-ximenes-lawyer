@@ -14,10 +14,16 @@ body {
   @include respond(phone) {
     font-size: 1.9em;
   }
+  @include respond(big-desktop) {
+    font-size: 3.75rem;
+  }
 }
 
 .paragraph {
   color: $text-white;
+  @include respond(big-desktop) {
+    font-size: 1.25rem;
+  }
 }
 
 .heading-secondary {

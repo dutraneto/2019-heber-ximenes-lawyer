@@ -47,6 +47,6 @@ TODO: ORDER:   BASE + TYPOGRAPHY > GENERAL LAYOUT + GRID > PAGE LAYOUT > COMPONE
   }
 
   @if $breakpoint == big-desktop {
-    @media only screen and (max-width: 160em) { @content };  // 1800px
+    @media only screen and (min-width: 1801px) { @content };  // 1801px ...
   }
 }
