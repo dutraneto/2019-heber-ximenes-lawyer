@@ -101,6 +101,8 @@ button.navbar-toggler.custom-toggler {
 }
 
 .nav-link.nav-link-custom {
-  font-size: 125%;
+  @include respond(big-desktop) {
+    font-size: 125%;
+    }
 }
 // -------------------HERO--------------------- //

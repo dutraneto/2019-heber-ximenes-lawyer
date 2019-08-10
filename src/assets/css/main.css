@@ -698,8 +698,10 @@ button.navbar-toggler.custom-toggler {
   background-image: url("../svg/menu.svg");
 }
 
-.nav-link.nav-link-custom {
-  font-size: 125%;
+@media only screen and (min-width: 1801px) {
+  .nav-link.nav-link-custom {
+    font-size: 125%;
+  }
 }
 
 .footer {
