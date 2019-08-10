@@ -16,18 +16,12 @@ Starts on: 04/15/19
     @include respond(phone) {
       width: 3rem;
     }
-    @include respond(big-desktop) {
-      width: 7.1rem;
-    }
     &-text {
       font-size: 60%;
       color: $color-text-gray;
 
       @include respond(phone) {
         font-size: 50%;
-      }
-      @include respond(big-desktop) {
-        font-size: 125%;
       }
     }
   }
@@ -98,9 +92,5 @@ button.navbar-toggler.custom-toggler {
 
 .custom-toggler .navbar-toggler-icon {
   background-image: url("../svg/menu.svg");
-}
-
-.nav-link.nav-link-custom {
-  font-size: 125%;
 }
 // -------------------HERO--------------------- //

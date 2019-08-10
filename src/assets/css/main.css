@@ -539,20 +539,8 @@ body {
   }
 }
 
-@media only screen and (min-width: 1801px) {
-  .heading-first {
-    font-size: 3.75rem;
-  }
-}
-
 .paragraph {
   color: #FFFFFF;
-}
-
-@media only screen and (min-width: 1801px) {
-  .paragraph {
-    font-size: 1.25rem;
-  }
 }
 
 .heading-secondary {
@@ -611,12 +599,6 @@ Starts on: 04/15/19
   }
 }
 
-@media only screen and (min-width: 1801px) {
-  .header__logo {
-    width: 7.1rem;
-  }
-}
-
 .header__logo-text {
   font-size: 60%;
   color: #CBD2D7;
@@ -625,12 +607,6 @@ Starts on: 04/15/19
 @media only screen and (max-width: 37.5em) {
   .header__logo-text {
     font-size: 50%;
-  }
-}
-
-@media only screen and (min-width: 1801px) {
-  .header__logo-text {
-    font-size: 125%;
   }
 }
 
@@ -696,10 +672,6 @@ button.navbar-toggler.custom-toggler {
 
 .custom-toggler .navbar-toggler-icon {
   background-image: url("../svg/menu.svg");
-}
-
-.nav-link.nav-link-custom {
-  font-size: 125%;
 }
 
 .footer {
@@ -838,23 +810,11 @@ button.navbar-toggler.custom-toggler {
   border: 1px solid #ffbf00;
 }
 
-@media only screen and (min-width: 1801px) {
-  .btn.btn-custom-md {
-    font-size: 18px;
-  }
-}
-
 .btn.btn-custom-lg {
   line-height: 2.0;
   padding: .5rem 2rem;
   font-size: 14px;
   font-weight: 100;
-}
-
-@media only screen and (min-width: 1801px) {
-  .btn.btn-custom-lg {
-    font-size: 18px;
-  }
 }
 
 .btn.btn-custom-xl {
@@ -867,12 +827,6 @@ button.navbar-toggler.custom-toggler {
 @media only screen and (max-width: 37.5em) {
   .btn.btn-custom-xl {
     width: 100%;
-  }
-}
-
-@media only screen and (min-width: 1801px) {
-  .btn.btn-custom-xl {
-    font-size: 20px;
   }
 }
 
@@ -1004,13 +958,6 @@ Starts on: 04/15/19
 }
 
 @media only screen and (max-width: 37.5em) {
-  .info__bg-color {
-    height: auto;
-    width: 25%;
-  }
-}
-
-@media only screen and (min-width: 1801px) {
   .info__bg-color {
     height: auto;
     width: 25%;

@@ -20,10 +20,6 @@
   font-size: 14px;
   font-weight: 400!important;
   border: 1px solid $color-stroke;
-
-  @include respond(big-desktop) {
-    font-size: 18px;
-  }
 }
 
 .btn.btn-custom-lg {
@@ -31,10 +27,6 @@
   padding: .5rem 2rem;
   font-size: 14px;
   font-weight: 100;
-
-  @include respond(big-desktop) {
-    font-size: 18px;
-  }
 }
 
 .btn.btn-custom-xl {
@@ -45,10 +37,6 @@
 
   @include respond(phone) {
     width: 100%;
-  }
-
-  @include respond(big-desktop) {
-    font-size: 20px;
   }
 }
 
