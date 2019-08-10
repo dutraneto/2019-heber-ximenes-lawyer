@@ -93,4 +93,10 @@ button.navbar-toggler.custom-toggler {
 .custom-toggler .navbar-toggler-icon {
   background-image: url("../svg/menu.svg");
 }
+
+.nav-link.nav-link-custom {
+  @include respond(big-desktop) {
+    font-size: 125%;
+    }
+}
 // -------------------HERO--------------------- //
