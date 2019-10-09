@@ -790,12 +790,6 @@ button.navbar-toggler.custom-toggler {
   padding: 0 5px;
 }
 
-@media only screen and (max-width: 37.5em) {
-  .form-control.form-control-custom {
-    font-size: 10px;
-  }
-}
-
 .btn-custom {
   color: #ffbf00;
   border-radius: 0;

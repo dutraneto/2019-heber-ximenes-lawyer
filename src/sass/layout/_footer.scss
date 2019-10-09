@@ -1,6 +1,7 @@
 .footer {
   // to handle with gaps between map and footer
   margin-top: -6px;
+
   &__first {
     padding: .225rem 3.75rem;
     background-color: $color-primary;
@@ -28,17 +29,21 @@
 
       @include respond(tab-port) {
         margin-left: 0;
+
         h5 {
           display: none;
         }
+
         h6 {
           margin-bottom: 0;
+
           @include respond(phone) {
             font-size: 50%;
           }
         }
       }
     }
+
     &-img {
       width: 5rem;
 
@@ -60,10 +65,11 @@
 
     &-arrowup {
       z-index: 100;
-      right:1rem;
+      right: 1rem;
       bottom: 1rem;
       transform: translateY(-50%)
     }
+
     &-arrowup:hover {
       transform: translateY(-60%)
     }
@@ -79,21 +85,17 @@
     }
 
     &--text a {
-        color: $color-text-gray;
-        font-size: 100%;
-        font-weight: 400;
+      color: $color-text-gray;
+      font-size: 100%;
+      font-weight: 400;
     }
   }
 }
 
 .form-group.border-color-gray {
-    border: 1px solid $color-button-secondary;
+  border: 1px solid $color-button-secondary;
 }
 
 .form-control.form-control-custom {
   padding: 0 5px;
-
-  @include respond(phone) {
-    font-size: 10px;
-  }
 }
