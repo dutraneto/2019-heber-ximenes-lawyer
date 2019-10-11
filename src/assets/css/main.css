@@ -674,6 +674,12 @@ button.navbar-toggler.custom-toggler {
   background-image: url("../svg/menu.svg");
 }
 
+@media only screen and (max-width: 160em) {
+  .nav-link.nav-link-custom {
+    font-size: 125%;
+  }
+}
+
 .footer {
   margin-top: -6px;
 }
@@ -782,12 +788,7 @@ button.navbar-toggler.custom-toggler {
 
 .form-control.form-control-custom {
   padding: 0 5px;
-}
-
-@media only screen and (max-width: 37.5em) {
-  .form-control.form-control-custom {
-    font-size: 10px;
-  }
+  overflow: hidden;
 }
 
 .btn-custom {
@@ -1064,7 +1065,7 @@ Starts on: 04/15/19
   margin-bottom: 1.5rem;
 }
 
-@media only screen and (max-width: 1124375em) {
+@media only screen and (max-width: 112.5em) {
   .services__card {
     height: 14.75rem;
     min-width: 14.75rem;
@@ -1134,7 +1135,7 @@ Starts on: 04/15/19
   min-width: 23.75em;
 }
 
-@media only screen and (max-width: 1124375em) {
+@media only screen and (max-width: 112.5em) {
   .agency__work {
     min-width: 18.75em;
   }
