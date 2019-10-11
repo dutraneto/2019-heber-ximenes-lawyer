@@ -788,6 +788,7 @@ button.navbar-toggler.custom-toggler {
 
 .form-control.form-control-custom {
   padding: 0 5px;
+  overflow: hidden;
 }
 
 .btn-custom {
