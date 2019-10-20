@@ -1,0 +1,23 @@
+{
+  "name": "Heber Ximenes - Advocacia e Consultoria Jurídica",
+  "short_name": "HXimenes",
+  "theme_color": "#1f3255",
+  "background_color": "#1f3255",
+  "display": "standalone",
+  "Scope": "/",
+  "start_url": "/",
+  "lang": "Portuguese",
+  "orientation": "any",
+  "icons": [{
+      "src": "assets/img/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "splash_pages": null
+}
