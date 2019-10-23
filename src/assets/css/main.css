@@ -593,12 +593,6 @@ Starts on: 04/15/19
   width: 5rem;
 }
 
-@media only screen and (max-width: 37.5em) {
-  .header__logo {
-    width: 3rem;
-  }
-}
-
 .header__logo-text {
   font-size: 60%;
   color: #CBD2D7;
@@ -606,7 +600,7 @@ Starts on: 04/15/19
 
 @media only screen and (max-width: 37.5em) {
   .header__logo-text {
-    font-size: 50%;
+    display: none;
   }
 }
 
@@ -623,7 +617,7 @@ Starts on: 04/15/19
 
 @media only screen and (max-width: 37.5em) {
   .header .section-hero__greet {
-    padding-left: .7rem;
+    padding-left: 0.7rem;
   }
 }
 
@@ -645,8 +639,20 @@ Starts on: 04/15/19
   }
 }
 
+.header .fixed-top {
+  left: 10%;
+  right: 10%;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .header .fixed-top {
+    left: 0;
+    right: 0;
+  }
+}
+
 .navbar {
-  padding: .7rem;
+  padding: 0.7rem;
 }
 
 .navbar.border-stroke {
@@ -667,7 +673,7 @@ button.navbar-toggler.custom-toggler {
   color: #ffbf00 !important;
   border: 1px solid #ffbf00 !important;
   border-radius: 0 !important;
-  padding: .25em !important;
+  padding: 0.25em !important;
 }
 
 .custom-toggler .navbar-toggler-icon {
