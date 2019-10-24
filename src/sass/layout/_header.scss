@@ -13,19 +13,19 @@ Starts on: 04/15/19
 .header {
   &__logo {
     width: 5rem;
-    @include respond(phone) {
-      width: 3rem;
-    }
+    // @include respond(phone) {
+    //   width: 3rem;
+    // }
     &-text {
       font-size: 60%;
       color: $color-text-gray;
 
       @include respond(phone) {
-        font-size: 50%;
+        // font-size: 50%;
+        display: none;
       }
     }
   }
-
 
   ////////////////
   // Section Hero
@@ -49,7 +49,7 @@ Starts on: 04/15/19
 
     &__greet {
       @include respond(phone) {
-        padding-left: .7rem;
+        padding-left: 0.7rem;
       }
     }
 
@@ -66,13 +66,22 @@ Starts on: 04/15/19
       background-position: center;
     }
   }
+
+  .fixed-top {
+    left: 10%;
+    right: 10%;
+    @include respond(phone) {
+      left: 0;
+      right: 0;
+    }
+  }
 }
 
 .navbar {
-  padding: .7rem;
+  padding: 0.7rem;
 }
 .navbar.border-stroke {
-  border:none;
+  border: none;
   border: 1px solid $color-stroke;
 }
 .navbar-brand {
@@ -87,16 +96,17 @@ button.navbar-toggler.custom-toggler {
   color: $color-stroke !important;
   border: 1px solid $color-stroke !important;
   border-radius: 0 !important;
-  padding: .25em !important;
+  padding: 0.25em !important;
 }
 
 .custom-toggler .navbar-toggler-icon {
-  background-image: url("../svg/menu.svg");
+  background-image: url('../svg/menu.svg');
 }
 
 .nav-link.nav-link-custom {
   @include respond(big-desktop) {
     font-size: 125%;
-    }
+  }
 }
+
 // -------------------HERO--------------------- //
