@@ -9,7 +9,7 @@
   "dependencies": {
     "gulp-cache": "^1.1.2",
     "node": "^12.6.0",
-    "npm": "^6.10.1",
+    "npm": "^6.13.4",
     "readable-stream": "^3.4.0",
     "upgrade": "^1.1.0"
   },
