@@ -11,7 +11,6 @@ Starts on: 04/15/19
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
 
-
 ////////////////
 // Section Info
 ///////////////
@@ -100,15 +99,13 @@ Starts on: 04/15/19
         z-index: 3;
         max-width: 270px;
         object-fit: cover;
-        box-shadow: 1px 1px 4px rgba(0, 0, 0, .3);
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
         // -webkit-filter: brightness(0.9);
         // filter: brightness(0.9);
     }
-
 }
 
 // -------------------INFO--------------------- //
-
 
 ////////////////////
 // Section Services
@@ -128,7 +125,7 @@ Starts on: 04/15/19
     }
 
     &__info {
-        background: url("../img/lady-justice.png") no-repeat center center;
+        background: url('../img/lady-justice.png') no-repeat center center;
         background-size: cover;
 
         @include respond(tab-port) {
@@ -177,7 +174,6 @@ Starts on: 04/15/19
 
 // -------------------SERVICES--------------------- //
 
-
 ////////////////////
 // Section contact
 ///////////////////
@@ -187,7 +183,7 @@ Starts on: 04/15/19
     // padding-bottom: 9rem;
     height: 100vh;
     width: 100%;
-    background-image: url("../img/contact-desktop.jpg");
+    background-image: url('../img/contact-desktop.jpg');
     background-repeat: no-repeat;
     background-position: bottom center;
     background-attachment: fixed;
@@ -204,7 +200,7 @@ Starts on: 04/15/19
     @include respond(phone) {
         padding-bottom: 15%;
         align-items: flex-end;
-        background-image: url("../img/contact-mobile.jpg");
+        background-image: url('../img/contact-mobile.jpg');
         background-size: cover;
         background-position: center center;
     }
@@ -223,7 +219,6 @@ Starts on: 04/15/19
 }
 
 // -------------------CONTACT--------------------- //
-
 
 ////////////////////
 // Section agency
@@ -269,7 +264,6 @@ Starts on: 04/15/19
 }
 
 // -------------------Agency--------------------- //
-
 
 ////////////////////
 // Section map

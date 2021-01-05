@@ -1,18 +1,9 @@
-const {
-	src,
-	dest,
-	series,
-	watch,
-	task,
-	parallel
-} = require('gulp')
+const { src, dest, series, watch, task, parallel } = require('gulp')
 const del = require('del')
 const sass = require('gulp-sass')
 const browserSync = require('browser-sync').create()
 const uglify = require('gulp-uglify')
-const {
-	pipeline
-} = require('readable-stream')
+const { pipeline } = require('readable-stream')
 const imagemin = require('gulp-imagemin')
 const autoprefixer = require('autoprefixer')
 const htmlmin = require('gulp-htmlmin')
@@ -28,127 +19,127 @@ sass.compiler = require('node-sass')
 
 // paths
 const path = {
-	root: '/',
-	source: 'src/',
-	all: 'src/**/*.*',
-	html: 'src/*.html',
-	sass: 'src/sass/**/*.scss',
-	dist: 'dist/',
-	port: 4000,
+    root: '/',
+    source: 'src/',
+    all: 'src/**/*.*',
+    html: 'src/*.html',
+    sass: 'src/sass/**/*.scss',
+    dist: 'dist/',
+    port: 4000,
 }
 
 /** FUNCTIONS --------*/
 // serve files
 const serve = (source = path.source ? path.source : path.dist, port = path.port) => {
-	browserSync.init({
-		browser: 'Google Chrome',
-		watch: true,
-		server: {
-			baseDir: source
-		},
-		port: port
-	})
-	watch(path.sass).on('change', series(buildCss, reloadBrowser))
-	watch(path.html).on('change', series(buildHtml, reloadBrowser))
+    browserSync.init({
+        // browser: 'Brave Browser',
+        watch: true,
+        server: {
+            baseDir: source,
+        },
+        port: port,
+    })
+    watch(path.sass).on('change', series(buildCss, reloadBrowser))
+    watch(path.html).on('change', series(buildHtml, reloadBrowser))
 }
 
 // function that reloads browsers
 const reloadBrowser = () => {
-	console.log('Clearing cache and reloading browsers')
-	clearCache()
-	browserSync.reload()
+    console.log('Clearing cache and reloading browsers')
+    clearCache()
+    browserSync.reload()
 }
 
 // clear the cache browser
 const clearCache = () => {
-	cache.clearAll()
+    cache.clearAll()
 }
 
 // Minimize JS
 const buildJs = () => {
-	return pipeline(
-		src(`${path.source}assets/js/*`),
-		uglify({
-			warnings: true,
-			compress: true
-		}),
-		dest(`${path.dist}assets/js/`)
-	)
+    return pipeline(
+        src(`${path.source}assets/js/*`),
+        uglify({
+            warnings: true,
+            compress: true,
+        }),
+        dest(`${path.dist}assets/js/`)
+    )
 }
 
 // Minify CSS and ADD vendor prefix
 const buildCss = () => {
-	let postcssPlugins = [
-		autoprefixer({
-			grid: true
-			// browsers: ['last 3 versions', 'ie 6-8', 'Firefox > 20']
-		}),
-		cssnano()
-	]
-	return pipeline(
-		src(path.sass),
-		sourcemaps.init(),
-		plumber(),
-		sass({
-			outputStyle: 'expanded'
-		}).on('error', sass.logError),
-		dest(`${path.source}assets/css/`),
-		postcss(postcssPlugins),
-		rename({
-			suffix: '.min'
-		}),
-		sourcemaps.write('./maps'),
-		dest(`${path.source}assets/css/`)
-	)
+    let postcssPlugins = [
+        autoprefixer({
+            grid: true,
+            // browsers: ['last 3 versions', 'ie 6-8', 'Firefox > 20']
+        }),
+        cssnano(),
+    ]
+    return pipeline(
+        src(path.sass),
+        sourcemaps.init(),
+        plumber(),
+        sass({
+            outputStyle: 'expanded',
+        }).on('error', sass.logError),
+        dest(`${path.source}assets/css/`),
+        postcss(postcssPlugins),
+        rename({
+            suffix: '.min',
+        }),
+        sourcemaps.write('./maps'),
+        dest(`${path.source}assets/css/`)
+    )
 }
 
 // Minify HTML
 const buildHtml = () => {
-	return pipeline(
-		src(path.html),
-		htmlmin({
-			removeComments: true,
-			collapseWhitespace: true
-		}),
-		dest(path.dist)
-	)
+    return pipeline(
+        src(path.html),
+        htmlmin({
+            removeComments: true,
+            collapseWhitespace: true,
+        }),
+        dest(path.dist)
+    )
 }
 
 // Copy files to dist
 const buildCopy = () => {
-	let sourceFiles = [
-		path.all,
-		`!${path.sass}`,
-		`!${path.source}assets/img/*`,
-		`!${path.source}assets/js/*`,
-		`!${path.source}assets/css/maps/main.min.css.map`,
-		`!${path.source}assets/css/main.css`,
-		`!${path.html}`
-	]
-	return src(sourceFiles).pipe(dest(path.dist))
+    let sourceFiles = [
+        path.all,
+        `!${path.sass}`,
+        `!${path.source}assets/img/*`,
+        `!${path.source}assets/js/*`,
+        `!${path.source}assets/css/maps/main.min.css.map`,
+        `!${path.source}assets/css/main.css`,
+        `!${path.html}`,
+    ]
+    return src(sourceFiles).pipe(dest(path.dist))
 }
 
 // Optimize images
 const buildImg = () => {
-	return pipeline(
-		src('src/assets/img/*'),
-		imagemin({
-			optimizationLevel: 3,
-			progressive: true,
-			interlaced: true
-		}),
-		dest('dist/assets/img')
-	)
+    return pipeline(
+        src('src/assets/img/*'),
+        imagemin({
+            optimizationLevel: 3,
+            progressive: true,
+            interlaced: true,
+        }),
+        dest('dist/assets/img')
+    )
 }
 
 // Clean dist and tmp
 const buildClean = () => {
-	return del([`${path.dist}`, 'tmp/**/*'])
+    return del([`${path.dist}`, 'tmp/**/*'])
 }
 
 // del only css files
 const delCss = () => {
-	return del(['src/assets/css/*.min.css'])
+    return del(['src/assets/css/*.min.css'])
 }
 
 /** TASKS --------*/

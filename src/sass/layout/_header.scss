@@ -11,102 +11,102 @@ Starts on: 04/15/19
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
 .header {
-  &__logo {
-    width: 5rem;
-    // @include respond(phone) {
-    //   width: 3rem;
-    // }
-    &-text {
-      font-size: 60%;
-      color: $color-text-gray;
+    &__logo {
+        width: 5rem;
+        // @include respond(phone) {
+        //   width: 3rem;
+        // }
+        &-text {
+            font-size: 60%;
+            color: $color-text-gray;
 
-      @include respond(phone) {
-        // font-size: 50%;
-        display: none;
-      }
-    }
-  }
-
-  ////////////////
-  // Section Hero
-  ///////////////
-
-  .section-hero {
-    padding: 1px 10%;
-    background-color: $color-primary;
-    // display: none;
-    height: 100vh;
-    width: 100%;
-    background-size: cover;
-    // background: url("/dist/assets/img/hero.png") $color-primary;
-    // background-image: linear-gradient(to right bottom,
-    //                                 rgba(31, 50, 85, .4),
-    //                                 rgba(74, 103, 143, 0.4)),
-    //                                 url(../img/hero.png);
-    background-image: url(../img/hero.jpg);
-    background-repeat: no-repeat;
-    background-position: bottom right;
-
-    &__greet {
-      @include respond(phone) {
-        padding-left: 0.7rem;
-      }
+            @include respond(phone) {
+                // font-size: 50%;
+                display: none;
+            }
+        }
     }
 
-    @include respond(tab-port) {
-      height: 125vh;
-      padding: 1px 5%;
-      background-image: url(../img/hero-tablet.jpg);
-      background-position: top right;
-    }
-    @include respond(phone) {
-      padding: 1px 1px;
-      background-image: url(../img/hero-phone.jpg);
-      background-size: cover;
-      background-position: center;
-    }
-  }
+    ////////////////
+    // Section Hero
+    ///////////////
 
-  .fixed-top {
-    left: 10%;
-    right: 10%;
-    @include respond(phone) {
-      left: 0;
-      right: 0;
+    .section-hero {
+        padding: 1px 10%;
+        background-color: $color-primary;
+        // display: none;
+        height: 100vh;
+        width: 100%;
+        background-size: cover;
+        // background: url("/dist/assets/img/hero.png") $color-primary;
+        // background-image: linear-gradient(to right bottom,
+        //                                 rgba(31, 50, 85, .4),
+        //                                 rgba(74, 103, 143, 0.4)),
+        //                                 url(../img/hero.png);
+        background-image: url(../img/hero.jpg);
+        background-repeat: no-repeat;
+        background-position: bottom right;
+
+        &__greet {
+            @include respond(phone) {
+                padding-left: 0.7rem;
+            }
+        }
+
+        @include respond(tab-port) {
+            height: 125vh;
+            padding: 1px 5%;
+            background-image: url(../img/hero-tablet.jpg);
+            background-position: top right;
+        }
+        @include respond(phone) {
+            padding: 1px 1px;
+            background-image: url(../img/hero-phone.jpg);
+            background-size: cover;
+            background-position: center;
+        }
     }
-  }
+
+    .fixed-top {
+        left: 10%;
+        right: 10%;
+        @include respond(phone) {
+            left: 0;
+            right: 0;
+        }
+    }
 }
 
 .navbar {
-  padding: 0.7rem;
+    padding: 0.7rem;
 }
 .navbar.border-stroke {
-  border: none;
-  border: 1px solid $color-stroke;
+    border: none;
+    border: 1px solid $color-stroke;
 }
 .navbar-brand {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 .navbar.navbar-dark.navbar-navy {
-  background-color: $color-primary;
+    background-color: $color-primary;
 }
 
 button.navbar-toggler.custom-toggler {
-  color: $color-stroke !important;
-  border: 1px solid $color-stroke !important;
-  border-radius: 0 !important;
-  padding: 0.25em !important;
+    color: $color-stroke !important;
+    border: 1px solid $color-stroke !important;
+    border-radius: 0 !important;
+    padding: 0.25em !important;
 }
 
 .custom-toggler .navbar-toggler-icon {
-  background-image: url('../svg/menu.svg');
+    background-image: url('../svg/menu.svg');
 }
 
 .nav-link.nav-link-custom {
-  @include respond(big-desktop) {
-    font-size: 125%;
-  }
+    @include respond(big-desktop) {
+        font-size: 125%;
+    }
 }
 
 // -------------------HERO--------------------- //
