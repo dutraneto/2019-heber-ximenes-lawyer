@@ -16,7 +16,6 @@ Starts on: 04/15/19
 ///////////////
 
 .info {
-    // height: 80vh;
     padding-right: 3.75rem;
     width: 100%;
     background-color: $text-white;
@@ -61,7 +60,7 @@ Starts on: 04/15/19
         height: 100%;
         justify-content: center;
         flex-basis: 70%;
-        background-image: url("../img/law-scale.jpg");
+        background-image: url('../img/law-scale.jpg');
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
@@ -71,6 +70,7 @@ Starts on: 04/15/19
             width: 90%;
             margin-left: auto;
             justify-content: start;
+            background-image: none;
         }
 
         @include respond(phone) {
